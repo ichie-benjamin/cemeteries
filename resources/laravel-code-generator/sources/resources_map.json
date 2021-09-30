@@ -1,0 +1,22 @@
+[
+    {
+        "model-name": "Template",
+        "resource-file": "templates.json"
+    },
+    {
+        "model-name": "MenuCategory",
+        "resource-file": "menu_categories.json"
+    },
+    {
+        "model-name": "Menu",
+        "resource-file": "menus.json"
+    },
+    {
+        "model-name": "Side",
+        "resource-file": "sides.json"
+    },
+    {
+        "model-name": "Flavor",
+        "resource-file": "flavors.json"
+    }
+]

@@ -1,0 +1,270 @@
+/*================================================================================
+	Item Name: 
+	Version: 2.0
+	Author: 
+	Author URL: 
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+
+
+.accordion-buttons a {
+	padding: 1rem
+}
+
+.accordion-header {
+    margin-bottom: 0;
+    padding: 1rem 0;
+}
+
+.font-weight-bold {
+    font-weight: 700;
+}
+
+.font-weight-normal {
+    font-weight: 400;
+}
+
+.nav-tabs .nav-item {
+    position: relative;
+    width: 50%;
+}
+
+.navbar-brand img {
+    max-width: 180px;
+}
+
+li.nav-item.me-auto {
+    max-width: 80%;
+}
+
+.login-logo img {
+    width: 200px;
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+}
+
+.restaurant-title {
+    margin-left: 100px;
+    line-height: 2.3rem;
+}
+
+.preview-restaurant {
+    color: #28a745;
+    font-weight: 500;
+}
+
+/* Buttons start here */
+
+.btn.btn-primary-outline, .btn-outline-secondary {
+    border: 1px solid #000;
+    border-radius: 25px;
+}
+
+.green-bg {
+    background: #28a745 !important;
+    border: #28a745 !important;
+}
+
+.green-bg:hover, .green-bg:focus, .green-bg:active {
+    background: #1e7e34 !important;
+    border: #1e7e34 !important;
+}
+
+.red-bg {
+    background: #dc3545 !important;
+    border: #dc3545 !important;
+}
+
+.red-bg:hover, .red-bg:active, .red-bg:focus {
+    background: #bd2130 !important;
+    border: #bd2130 !important;
+}
+
+.blue-bg {
+    background: #007bff !important;
+    border: #007bff !important;
+}
+
+.blue-bg:hover, .blue-bg:active, .blue-bg:focus {
+    background: #0062cc !important;
+    border: #0062cc !important;
+}
+
+.black-bg {
+    background: #000000 !important;
+    border: #000000 !important;
+}
+
+.blue-bg-outline, .blue-bg-outline:hover {
+    background: #fff !important;
+    border: 1px solid #007bff !important;
+    color: #007bff !important;
+}
+
+.red-bg-outline, .red-bg-outline:hover {
+    background: #fff !important;
+    border: 1px solid #dc3545 !important;
+    color: #dc3545 !important;
+}
+
+.green-bg-outline, .green-bg-outline:hover {
+    background: #fff !important;
+    border: 1px solid #28a745 !important;
+    color: #28a745 !important;
+}
+
+.feather-check-circle, .feather-eye, .no-bg-feather-plus {
+    color: #28a745;
+}
+
+.feather-x-circle, .feather-trash {
+    color: #dc3545;
+}
+
+.feather-edit-2 {
+    color: #007bff;
+}
+
+
+
+/* Buttons end here */
+
+
+/* Restaurant page custom css start here */
+
+.restaurant-logo img {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+/* Restaurant page custom css end here */
+
+
+
+/* Restaurant info images */
+.upload-restaurant-logo .dropzone .dz-message:before {
+    top: 6.5rem;
+    width: 30px;
+    height: 30px;
+    color: #000;
+}
+
+.upload-restaurant-logo .dropzone {
+    min-height: 150px;
+    border: 2px dashed #000;
+    background: #f8f8f8;
+    width: 150px;
+}
+
+.upload-restaurant-logo .dropzone .dz-message {
+    font-size: 0.78rem;
+    color: #000;
+    text-align: center;
+}
+
+.upload-restaurant-cover .dropzone .dz-message:before {
+    top: 6.5rem;
+    width: 30px;
+    height: 30px;
+    color: #000;
+}
+
+.upload-restaurant-cover .dropzone {
+    min-height: 150px;
+    border: 2px dashed #000;
+    background: #f8f8f8;
+    width: 300px;
+}
+
+.upload-restaurant-cover .dropzone .dz-message {
+    font-size: 0.78rem;
+    color: #000;
+    text-align: center;
+}
+
+
+/* Menu section styles */
+
+.menu-items-row {
+    padding: 1.5rem 1rem;
+}
+
+.menu-item-img {
+    width: 50px;
+}
+
+.menu-items-row p {
+    font-size: 0.850rem;
+}
+
+.menu-items-row .card {
+    border-top: 3px solid #000;
+}
+
+.menu-items-row .card-header {
+    padding: 1rem;
+}
+
+.menu-items-row .card-title {
+    font-size: 1.2rem;
+}
+
+.card-header .dropdown .btn {
+    background: #f1f1f1;
+    border-radius: 25px;
+    padding: 0.3rem;
+    color: #000;
+}
+
+.dynamic-input .btn {
+    border-radius: 5px;
+}
+
+
+
+
+/* DRAGGLE COMPONENTS CSS */
+
+.draggable {
+    cursor: move; }
+  
+  .gu-unselectable .draggable {
+    cursor: grabbing; }
+  
+  #multiple-list-group-a,
+  #multiple-list-group-b {
+    min-height: 5.714rem; }
+  
+  #dd-with-handle .list-group {
+    min-height: 5.714rem; }
+  
+  #dd-with-handle .list-group .handle {
+    padding: 0 5px;
+    margin-right: 5px;
+    background-color: rgba(34, 41, 47, 0.1);
+    cursor: move;
+    font-size: 1.2rem; }
+  
+  .gu-mirror .card {
+    margin: 0 1rem; }
+  
+  .gu-mirror .handle {
+    padding: 0 5px;
+    margin-right: 5px;
+    background-color: rgba(34, 41, 47, 0.1);
+    cursor: move;
+    font-size: 1.2rem; }
+  
+  .dark-layout .gu-mirror {
+    color: #b4b7bd; }
+  
+  .dark-layout .gu-mirror:not(.badge):not([class*='col-']) {
+    background-color: #283046;
+    border-color: #3b4253;
+    box-shadow: 0 4px 24px 0 rgba(34, 41, 47, 0.24); }
