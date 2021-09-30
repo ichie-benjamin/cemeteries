@@ -18,7 +18,7 @@
 {{--                    <option>Events</option>--}}
 {{--                </select>--}}
 {{--            </div>--}}
-            <button class="header-search-button" onclick="window.location.href=l'">Search</button>
+            <button class="header-search-button" >Search</button>
         </div>
         <div class="show-search-button"><i class="fa fa-search"></i> <span>Search</span></div>
         <a href="#dashboard-add-listing.html" class="add-list">Upload Photos <span><i class="fa fa-plus"></i></span></a>
@@ -38,25 +38,25 @@
                     <li><a href="{{ route('cemeteries') }}">Cemeteries</a></li>
                     <li><a href="{{ route('memorials.famous') }}">Famous</a></li>
                     <li><a href="{{ route('help') }}">Get Help</a></li>
-                    <li>
-                        <a href="#">Pages <i class="fa fa-caret-down"></i></a>
-                        <!--second level -->
-                        <ul>
-                            <li><a href="#about.html">About</a></li>
-                            <li><a href="#contacts.html">Contacts</a></li>
-                            <li><a href="#author-single.html">User single</a></li>
-                            <li><a href="#how-itworks.html">How it Works</a></li>
-                            <li><a href="#pricing-tables.html">Pricing</a></li>
-                            <li><a href="#dashboard-myprofile.html">User Dasboard</a></li>
-                            <li><a href="#blog-single.html">Blog Single</a></li>
-                            <li><a href="#dashboard-add-listing.html">Add Listing</a></li>
-                            <li><a href="#404.html">404</a></li>
-                            <li><a href="#coming-soon.html">Coming Soon</a></li>
-                            <li><a href="#header2.html">Header 2</a></li>
-                            <li><a href="#footer-fixed.html">Footer Fixed</a></li>
-                        </ul>
-                        <!--second level end-->
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="#">Pages <i class="fa fa-caret-down"></i></a>--}}
+{{--                        <!--second level -->--}}
+{{--                        <ul>--}}
+{{--                            <li><a href="#about.html">About</a></li>--}}
+{{--                            <li><a href="#contacts.html">Contacts</a></li>--}}
+{{--                            <li><a href="#author-single.html">User single</a></li>--}}
+{{--                            <li><a href="#how-itworks.html">How it Works</a></li>--}}
+{{--                            <li><a href="#pricing-tables.html">Pricing</a></li>--}}
+{{--                            <li><a href="#dashboard-myprofile.html">User Dasboard</a></li>--}}
+{{--                            <li><a href="#blog-single.html">Blog Single</a></li>--}}
+{{--                            <li><a href="#dashboard-add-listing.html">Add Listing</a></li>--}}
+{{--                            <li><a href="#404.html">404</a></li>--}}
+{{--                            <li><a href="#coming-soon.html">Coming Soon</a></li>--}}
+{{--                            <li><a href="#header2.html">Header 2</a></li>--}}
+{{--                            <li><a href="#footer-fixed.html">Footer Fixed</a></li>--}}
+{{--                        </ul>--}}
+{{--                        <!--second level end-->--}}
+{{--                    </li>--}}
                 </ul>
             </nav>
         </div>

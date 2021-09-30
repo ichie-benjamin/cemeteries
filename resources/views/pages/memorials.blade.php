@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- wrapper -->
-    <div id="wrapper">
+    <div id="wrapper" class="memorials">
         <!--  content  -->
         <div class="content">
             <!--  section  end-->
@@ -206,24 +206,10 @@
             </section>
             <!--  section  end-->
             <div class="limit-box fl-wrap"></div>
-            <!--  section  -->
-            <section class="gradient-bg">
-                <div class="cirle-bg">
-                    <div class="bg" data-bg="images/bg/circle.png"></div>
-                </div>
-                <div class="container">
-                    <div class="join-wrap fl-wrap">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <h3>Join our online community</h3>
-                                <p>Grow your marketing and be happy with your online business</p>
-                            </div>
-                            <div class="col-md-4"><a href="#" class="join-wrap-btn modal-open">Sign Up <i class="fa fa-sign-in"></i></a></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--  section  end-->
+
+
+
+            @include('partials.foot')
         </div>
         <!-- content end-->
     </div>

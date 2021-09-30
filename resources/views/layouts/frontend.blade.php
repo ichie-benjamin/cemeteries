@@ -17,16 +17,19 @@
     <link rel="shortcut icon" href="/images/favicon.ico">
 
     <style>
-        .listsearch-input-item {
+        .memorials .listsearch-input-item {
             width: 25%;
             padding: 2px 3px;
         }
-        .geodir-category-img{
+        .memorials .geodir-category-img{
             width: 20%!important;
         }
-        .geodir-category-content {
+       .memorials .geodir-category-content {
             width: 40%!important;
         }
+       .clisting .listsearch-input-text {
+           margin-top: 0!important;
+       }
     </style>
 </head>
 <body>
@@ -191,5 +194,11 @@
 <script type="text/javascript" src="/js/plugins.js"></script>
 <script type="text/javascript" src="/js/scripts.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMby_wXUDOQbdZtIhHjv_nXyKqtO1w-AY&amp;libraries=places&amp;callback=initAutocomplete"></script>
+
+
+<script type="text/javascript" src="/js/map_infobox.js"></script>
+<script type="text/javascript" src="/js/markerclusterer.js"></script>
+<script type="text/javascript" src="/js/maps.js"></script>
+
 </body>
 </html>

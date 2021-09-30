@@ -34,6 +34,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 //PAGES
 Route::get('/cemeteries', [PagesControler::class, 'cemeteries'])->name('cemeteries');
+Route::get('/cemeteries/list', [PagesControler::class, 'cemeteriesList'])->name('cemeteries.list');
+
 Route::get('/memorials', [PagesControler::class, 'memorials'])->name('memorials');
 Route::get('/memorial/{memorial', [PagesControler::class, 'showMemorials'])->name('memorial.show');
 Route::get('/famous/memorials', [PagesControler::class, 'famousMemorials'])->name('memorials.famous');

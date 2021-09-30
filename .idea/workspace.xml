@@ -117,10 +117,8 @@
       <change afterPath="$PROJECT_DIR$/public/js/markerclusterer.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/js/plugins.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/public/js/scripts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/frontend.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/cemeteries.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/memorials.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/cemeteries_listing.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/partials/foot.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/laravel_admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel_admin.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
@@ -129,6 +127,7 @@
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MenuCategoriesController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/MenusController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PagesControler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PagesControler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RestaurantsController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SidesController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TemplatesController.php" beforeDir="false" />
@@ -171,6 +170,10 @@
       <change beforePath="$PROJECT_DIR$/resources/views/inc/modals/edit_menu_item.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/inc/modals/res_delete.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/inc/sub_cat_items.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/frontend.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/frontend.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/cemeteries.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/cemeteries.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/memorials.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/memorials.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/super/crud.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/super/dashboard.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/super/layouts/master.blade.php" beforeDir="false" />
@@ -444,7 +447,7 @@
       <workItem from="1630820348821" duration="1688000" />
       <workItem from="1632929097289" duration="3355000" />
       <workItem from="1632994560745" duration="8204000" />
-      <workItem from="1633027493634" duration="4299000" />
+      <workItem from="1633027493634" duration="7609000" />
     </task>
     <servers />
   </component>
