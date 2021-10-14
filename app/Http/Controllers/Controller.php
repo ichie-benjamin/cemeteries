@@ -13,6 +13,10 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function months(){
+        return ['January','Febuary','March','April','May','June','July','August','September','October','November','December'];
+    }
+
     public function resizeImage($file, $path)
     {
         $resize = Image::make($file)->resize(400, 300, function ($constraint) {

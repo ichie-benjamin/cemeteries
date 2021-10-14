@@ -104,19 +104,18 @@
                                     <div class="listing-item list-layout">
                                         <article class="geodir-category-listing fl-wrap">
                                             <div class="geodir-category-img">
-                                                <img style="padding: 15px" src="images/all/4.jpg" alt="">
+                                                <img style="padding: 15px" src="{{ $item->image }}" alt="">
                                             </div>
                                             <div class="geodir-category-content fl-wrap">
 
-                                                <h3><a href="listing-single.html">Benard Richard Henrdors</a></h3>
-                                                <p>12th Sept 1900 - 23 Oct 1990</p>
+                                                <h3><a href="#">{{ $item->name }}</a></h3>
+                                                <p>{{ $item->age }}</p>
 
                                             </div>
                                             <div class="geodir-category-content fl-wrap text-justify">
 
-                                                <h3><a href="#">Garilbalian Cemetery</a></h3>
-                                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab blanditiis consectetur distinctio doloremque doloribus
-                                                 At doloremque </p>
+                                                <h3><a href="#">{{ optional($item->cemetery)->name }}</a></h3>
+                                            <p> {{ $item->short_bio }} </p>
                                             </div>
                                         </article>
                                     </div>
@@ -124,6 +123,8 @@
                                     <div class="clearfix"></div>
                                 @endforeach
                                     <!-- pagination-->
+
+
                                     <div class="pagination">
                                         <a href="#" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
                                         <a href="#" class="blog-page transition">1</a>
@@ -177,22 +178,10 @@
                                         <!-- Checkboxes -->
                                         <div class=" fl-wrap filter-tags">
                                             <h4>Filter by Tags</h4>
-                                            <div class="filter-tags-wrap">
-                                                <input id="check-a" type="checkbox" name="check" checked>
-                                                <label for="check-a">Elevator in building</label>
-                                            </div>
-                                            <div class="filter-tags-wrap">
-                                                <input id="check-b" type="checkbox" name="check">
-                                                <label for="check-b">Friendly workspace</label>
-                                            </div>
-                                            <div class="filter-tags-wrap">
-                                                <input id="check-c" type="checkbox" name="check">
-                                                <label for="check-c">Instant Book</label>
-                                            </div>
-                                            <div class="filter-tags-wrap">
-                                                <input id="check-d" type="checkbox" name="check">
-                                                <label for="check-d">Wireless Internet</label>
-                                            </div>
+{{--                                            <div class="filter-tags-wrap">--}}
+{{--                                                <input id="check-a" type="checkbox" name="check" checked>--}}
+{{--                                                <label for="check-a">Elevator in building</label>--}}
+{{--                                            </div>--}}
                                         </div>
                                         <!-- hidden-listing-filter end -->
                                         <button class="button fs-map-btn">Update</button>

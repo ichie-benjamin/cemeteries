@@ -18,5 +18,17 @@
     {
         "model-name": "Flavor",
         "resource-file": "flavors.json"
+    },
+    {
+        "model-name": "Cementery",
+        "resource-file": "cementeries.json"
+    },
+    {
+        "model-name": "Image",
+        "resource-file": "images.json"
+    },
+    {
+        "model-name": "Memorial",
+        "resource-file": "memorials.json"
     }
 ]

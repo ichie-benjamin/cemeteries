@@ -11,19 +11,19 @@
                     <div class="login-logo">
                         <div class="nav-item">
                             <a class="navbar-brand ml-2" href="#">
-                                <img src="/assets/images/logo/logo.png">
+                                <img src="/images/logo.png">
                             </a>
                         </div>
                     </div>
 
                     <!-- /Brand logo-->
                     <!-- Left Text-->
-                    <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">
-                        <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="/assets/images/pages/login/qrcode-scan.jpeg" alt="Login"/></div>
-                    </div>
+{{--                    <div class="d-none d-lg-flex col-lg-8 align-items-center p-5">--}}
+{{--                        <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="/images/slider2.jpeg" alt="Login"/></div>--}}
+{{--                    </div>--}}
                     <!-- /Left Text-->
                     <!-- Login-->
-                    <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
+                    <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5 mx-auto">
                         <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                             <h2 class="card-title fw-bold mb-1">Sign In 👋</h2>
                             <p class="card-text mb-2">Please sign-in to your account.</p>

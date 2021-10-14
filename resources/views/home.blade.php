@@ -71,76 +71,39 @@
                     </div>
                     <!-- portfolio start -->
                     <div class="gallery-items fl-wrap mr-bot spad">
+
                         <!-- gallery-item-->
-                        <div class="gallery-item">
-                            <div class="grid-item-holder">
-                                <div class="listing-item-grid">
-                                    <div class="bg"  data-bg="/images/c/5.jpeg"></div>
-                                    <div class="listing-counter"><span>10 </span> Memorials</div>
-                                    <div class="listing-item-cat">
-                                        <h3><a href="#listing.html">Abernathy - Cogdell Cemetery</a></h3>
-                                        <p>Hydes Ferry Road  Nashville, Davidson County, Tennessee, USA</p>
+                        @foreach($cemeteries as $item)
+                            @if ($loop->index == 1)
+                                <div class="gallery-item gallery-item-second">
+                                    <div class="grid-item-holder">
+                                        <div class="listing-item-grid">
+                                            <div class="bg"  data-bg="{{ $item->image }}"></div>
+                                            <div class="listing-counter"><span>{{ $item->memorials_count }} </span> Memorials</div>
+                                            <div class="listing-item-cat">
+                                                <h3><a href="{{ route('cemetery.show', $item->username) }}">{{ $item->name }}</a></h3>
+                                                <p>{{ $item->full_address }}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- gallery-item end-->
-                        <!-- gallery-item-->
-                        <div class="gallery-item gallery-item-second">
-                            <div class="grid-item-holder">
-                                <div class="listing-item-grid">
-                                    <div class="bg"  data-bg="/images/c/1.jpeg"></div>
-                                    <div class="listing-counter"><span>26 </span> Memorials</div>
-                                    <div class="listing-item-cat">
-                                        <h3><a href="#listing.html">Search Memorials in Daniel Abernathy Cemetery</a></h3>
-                                        <p>Old Highway 15, left into Blooming Grove Road, 1/2 mile past church, down the land on the left. On hill at old Poor Farm</p>
+                            @else
+                                <div class="gallery-item">
+                                    <div class="grid-item-holder">
+                                        <div class="listing-item-grid">
+                                            <div class="bg"  data-bg="{{ $item->image }}"></div>
+                                            <div class="listing-counter"><span>{{ $item->memorials_count }}</span> Memorials</div>
+                                            <div class="listing-item-cat">
+                                                <h3><a href="{{ route('cemetery.show', $item->username) }}">{{ $item->name }}</a></h3>
+                                                <p>{{ $item->full_address }}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                        @endif
                         <!-- gallery-item end-->
+                    @endforeach
                         <!-- gallery-item-->
-                        <div class="gallery-item">
-                            <div class="grid-item-holder">
-                                <div class="listing-item-grid">
-                                    <div class="bg"  data-bg="/images/c/1.jpeg"></div>
-                                    <div class="listing-counter"><span>21 </span> Memorials</div>
-                                    <div class="listing-item-cat">
-                                        <h3><a href="#listing.html">William Harp Abernathy Cemetery</a></h3>
-                                        <p>Giles County, Tennessee, USA</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- gallery-item end-->
-                        <!-- gallery-item-->
-                        <div class="gallery-item">
-                            <div class="grid-item-holder">
-                                <div class="listing-item-grid">
-                                    <div class="bg"  data-bg="/images/c/2.jpeg"></div>
-                                    <div class="listing-counter"><span>73 </span> Memorials</div>
-                                    <div class="listing-item-cat">
-                                        <h3><a href="#listing.html">Talley-Abernathy Cemetery</a></h3>
-                                        <p>Marion, Montgomery County, Tennessee, USA</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- gallery-item end-->
-                        <!-- gallery-item-->
-                        <div class="gallery-item">
-                            <div class="grid-item-holder">
-                                <div class="listing-item-grid">
-                                    <div class="bg"  data-bg="/images/c/3.jpeg"></div>
-                                    <div class="listing-counter"><span>35 </span> Memorials</div>
-                                    <div class="listing-item-cat">
-                                        <h3><a href="#listing.html">Sterling Abernathy Cemetery</a></h3>
-                                        <p>Giles County, Tennessee, USA</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- gallery-item end-->
                     </div>
                     <!-- portfolio end -->
                     <a href="{{ route('cemeteries') }}" class="btn  big-btn circle-btn dec-btn  color-bg flat-btn">View All<i class="fa fa-eye"></i></a>

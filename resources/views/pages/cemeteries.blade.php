@@ -54,22 +54,22 @@
                             <div class="listing-item">
                                 <article class="geodir-category-listing fl-wrap">
                                     <div class="geodir-category-img">
-                                        <img src="/images/c/5.jpeg" alt="">
+                                        <img src="{{ $item->image }}" alt="">
                                         <div class="overlay"></div>
                                         <div class="list-post-counter"><span>4</span><i class="fa fa-heart"></i></div>
                                     </div>
                                     <div class="geodir-category-content fl-wrap">
-                                        <a class="listing-geodir-category" href="#listing.html">12 Memorials</a>
+                                        <a class="listing-geodir-category" href="#">{{ $item->memorials_count }} Memorials</a>
 
-                                        <h3><a href="listing-single.html">Barcelona Sud-Oeste</a></h3>
-                                        <p>Sed interdum metus at nisi tempor laoreet. Integer gravida orci a justo sodales, sed lobortis est placerat.</p>
+                                        <h3><a href="{{ route('cemetery.show', $item->username) }}">{{ $item->name }}</a></h3>
+                                        <p>{{ $item->short_desc }}.</p>
 
 
                                         <div class="geodir-category-options fl-wrap">
 
                                             <p>(100% Photographed)</p>
 
-                                            <div class="geodir-category-location"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> 27th Brooklyn New York, NY 10065</a></div>
+                                            <div class="geodir-category-location"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i> {{ $item->full_address }}</a></div>
                                         </div>
                                     </div>
                                 </article>

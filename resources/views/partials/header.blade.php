@@ -21,8 +21,15 @@
             <button class="header-search-button" >Search</button>
         </div>
         <div class="show-search-button"><i class="fa fa-search"></i> <span>Search</span></div>
-        <a href="#dashboard-add-listing.html" class="add-list">Upload Photos <span><i class="fa fa-plus"></i></span></a>
-        <div class="show-reg-form modal-open"><i class="fa fa-sign-in"></i>Sign In</div>
+
+        @guest()
+            <a href="{{ route('login') }}" class="add-list">Upload Photos <span><i class="fa fa-plus"></i></span></a>
+            <div class="show-reg-form text-white"><a href="{{ route('login') }}" style="color:#fff;" class="text-white"><i class="fa fa-sign-in"></i>Sign In</a></div>
+    @else
+            <a href="{{ route('dashboard') }}" class="add-list">Upload Photos <span><i class="fa fa-plus"></i></span></a>
+{{--            <div class="show-reg-form modal-open"><i class="fa fa-sign-in"></i>Dashboard</div>--}}
+    @endguest
+
         <!-- nav-button-wrap-->
         <div class="nav-button-wrap color-bg">
             <div class="nav-button">
