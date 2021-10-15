@@ -223,7 +223,7 @@
                                         <div class="box-widget-content">
                                             <div class="list-author-widget-contacts list-item-widget-contacts">
                                                 <ul>
-                                                    <li><span><i class="fa fa-map-marker"></i> Address :</span> <a href="#">{{ $cemetery->address }}</a></li>
+                                                    <li><span><i class="fa fa-map-marker"></i> Address :</span> <a href="#">{{ $cemetery->full_address }}</a></li>
 {{--                                                    <li><span><i class="fa fa-phone"></i> Phone :</span> <a href="#">+7(123)987654</a></li>--}}
 {{--                                                    <li><span><i class="fa fa-envelope-o"></i> Mail :</span> <a href="#">AlisaNoory@domain.com</a></li>--}}
                                                     <li><span><i class="fa fa-globe"></i> Website :</span> <a href="#">{{ $cemetery->website }}</a></li>
@@ -266,6 +266,7 @@
                                         <h3>Similar cemeteries : </h3>
                                     </div>
                                     <div class="box-widget widget-posts">
+                                        @section('hide')
                                         <div class="box-widget-content">
                                             <ul>
                                                 <li class="clearfix">
@@ -292,6 +293,7 @@
                                             </ul>
                                             <a class="widget-posts-link" href="#">See All Listing<span><i class="fa fa-angle-right"></i></span></a>
                                         </div>
+                                        @endsection
                                     </div>
                                 </div>
                                 <!--box-widget-item end -->

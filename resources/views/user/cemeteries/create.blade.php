@@ -100,6 +100,18 @@
                                                     {!! $errors->first('latitude', '<p class="help-block">:message</p>') !!}
                                                 </div>
 
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Website:</label>
+                                                    <input  value="{{ old('website') }}" name="website" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    {!! $errors->first('website', '<p class="help-block">:message</p>') !!}
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <label class="form-label">Municipalities:</label>
+                                                    <input  value="{{ old('municipalities') }}" name="municipalities" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    {!! $errors->first('municipalities', '<p class="help-block">:message</p>') !!}
+                                                </div>
+
                                                 <div class="col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="description">Cemetery Info </label>
