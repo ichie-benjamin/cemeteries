@@ -87,11 +87,25 @@
                                                     <input required value="{{ old('city', $cemetery->city) }}" name="city" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('city', '<p class="help-block">:message</p>') !!}
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-8">
                                                     <label class="form-label">cemetery Address:</label>
                                                     <input required value="{{ old('address', $cemetery->address) }}" name="address" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('address', '<p class="help-block">:message</p>') !!}
                                                 </div>
+
+
+                                                <div class="col-md-2">
+                                                    <label class="form-label">Longitude:</label>
+                                                    <input required value="{{ old('longitude', $cemetery->longitude) }}" name="longitude" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    {!! $errors->first('longitude', '<p class="help-block">:message</p>') !!}
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <label class="form-label">Latitude:</label>
+                                                    <input required value="{{ old('latitude', $cemetery->latitude) }}" name="latitude" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    {!! $errors->first('latitude', '<p class="help-block">:message</p>') !!}
+                                                </div>
+
 
                                                 <div class="col-12">
                                                     <div class="mb-1">
