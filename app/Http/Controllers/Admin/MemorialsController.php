@@ -19,7 +19,7 @@ class MemorialsController extends Controller
             $memorials = Memorial::whereCemeteryId($c_id)->paginate(25);
         }else{
             $title = "Manage Memorials";
-            $memorials = Memorial::whereUserId(auth()->id())->paginate(25);
+            $memorials = Memorial::paginate(25);
         }
 
         return view('admin.memorials.list', compact('memorials','title'));
@@ -27,7 +27,8 @@ class MemorialsController extends Controller
 
     public function storePhoto(Request $request){
         $photo = new Image();
-        $photo->user_id = auth()->id(); $photo->memorial_id = $request['memorial_id'];
+        $photo->user_id = auth()->id();
+        $photo->memorial_id = $request['memorial_id'];
         $photo->name = $request['name']; $photo->path = $request['image'];
         $photo->type = $request['type'];
         $photo->save();
