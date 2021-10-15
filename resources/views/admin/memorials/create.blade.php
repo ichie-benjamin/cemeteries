@@ -88,8 +88,9 @@
                                                 <div class="col-md-2">
                                                     <label class="form-label">Birth Month:</label>
                                                     <select required name="birth_month" class="form-control">
-                                                        <option value="1">January</option>
-                                                        <option value="2">January</option>
+                                                        @foreach($months as $item)
+                                                            <option value="{{ $loop->index+1 }}">{{ $item }}</option>
+                                                        @endforeach
                                                     </select>
                                                     {!! $errors->first('birth_month', '<p class="help-block">:message</p>') !!}
                                                 </div>
@@ -114,8 +115,9 @@
                                                 <div class="col-md-2">
                                                     <label class="form-label">Death Month:</label>
                                                     <select required name="death_month" class="form-control">
-                                                        <option value="1">January</option>
-                                                        <option value="2">January</option>
+                                                        @foreach($months as $item)
+                                                            <option value="{{ $loop->index+1 }}">{{ $item }}</option>
+                                                        @endforeach
                                                     </select>
                                                     {!! $errors->first('death_day', '<p class="help-block">:message</p>') !!}
                                                 </div>
