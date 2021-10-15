@@ -34,6 +34,9 @@ class HomeController extends Controller
     public function dashboard()
     {
 
+        if(auth()->user()->hasRole(['admin','superadmin'])){
+            return redirect()->route('admin.dashboard');
+        }
         $cemeteries = Cementery::whereUserId(auth()->id())->get();
 
         foreach($cemeteries as $item) {
