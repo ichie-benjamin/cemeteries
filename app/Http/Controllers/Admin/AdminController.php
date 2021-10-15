@@ -15,26 +15,26 @@ class AdminController extends Controller
     public function dashboard()
     {
 
-        $cemeteries = Cementery::whereUserId(auth()->id())->get();
+        $cemeteries = Cementery::all();
 
-        foreach($cemeteries as $item) {
-            $item->unique_views_count = views($item)->unique()->count();
-            $item->views_count = views($item)->count();
-            $item->today_views_count = views($item)->period(Period::since(Carbon::today()))->count();
-            $item->today_unique_views_count = views($item)->period(Period::since(Carbon::today()))->unique()->count();
-            $item->save();
-        }
+//        foreach($cemeteries as $item) {
+//            $item->unique_views_count = views($item)->unique()->count();
+//            $item->views_count = views($item)->count();
+//            $item->today_views_count = views($item)->period(Period::since(Carbon::today()))->count();
+//            $item->today_unique_views_count = views($item)->period(Period::since(Carbon::today()))->unique()->count();
+//            $item->save();
+//        }
 
 
-        $data['total_cemeteries'] = Cementery::whereUserId(auth()->id())->count();
-        $data['total_memorials'] = Memorial::whereUserId(auth()->id())->count();
-        $data['photos'] = Image::whereUserId(auth()->id())->count();
+        $data['total_cemeteries'] = Cementery::count();
+        $data['total_memorials'] = Memorial::count();
+        $data['photos'] = Image::count();
         $data['cemeteries'] = $cemeteries;
 
-        $data['total_cemeteries_views'] = Cementery::whereUserId(auth()->id())->sum('views_count');
-        $data['total_cemeteries_u_views'] = Cementery::whereUserId(auth()->id())->sum('unique_views_count');
-        $data['total_cemeteries_today_views'] = Cementery::whereUserId(auth()->id())->sum('today_views_count');
-        $data['total_cemeteries_today_u_views'] = Cementery::whereUserId(auth()->id())->sum('today_unique_views_count');
+        $data['total_cemeteries_views'] = Cementery::sum('views_count');
+        $data['total_cemeteries_u_views'] = Cementery::sum('unique_views_count');
+        $data['total_cemeteries_today_views'] = Cementery::sum('today_views_count');
+        $data['total_cemeteries_today_u_views'] = Cementery::sum('today_unique_views_count');
 
         return view('admin.dashboard', compact('data'));
     }

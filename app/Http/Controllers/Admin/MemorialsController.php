@@ -46,7 +46,7 @@ class MemorialsController extends Controller
     public function create()
     {
         $months = $this->months();
-        $cemeteries = Cementery::whereUserId(auth()->id())->get();
+        $cemeteries = Cementery::all();
         if(count($cemeteries) < 1){
             return redirect()->route('cemeteries.create')->with('success_message', 'Create a cemetery first');
         }
@@ -80,7 +80,7 @@ class MemorialsController extends Controller
     public function edit($id)
     {
         $months = $this->months();
-        $cemeteries = Cementery::whereUserId(auth()->id())->get();
+        $cemeteries = Cementery::all();
         $prefix = ['Mrs','Doctor','Judge','Deacon','Elder', 'Rabbi',' Rev','Rev Fr','Br','Sr'];
         $sufix = ['Jr','Sr','i','ii','iii','iv','vi','vi'];
         $memorial = Memorial::findOrFail($id);
