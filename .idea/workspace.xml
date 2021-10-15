@@ -5,77 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fa95e79-fa15-42c1-8148-e21acaf6e0c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/cemeteries/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/cemeteries/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/cemeteries/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/memorials/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/memorials/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/memorials/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/memorials/photos.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/photos.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/alert.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/image-upload.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/menu_items.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/modals/add_menu_category.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/modals/add_menu_item.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/modals/add_menu_sub_category.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/modals/deletes/menu_cat.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/modals/deletes/menu_item.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/modals/deletes/menu_sub_cat.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/modals/edit_menu_category.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/modals/edit_menu_item.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/modals/res_delete.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/sub_cat_items.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/cemetery/view/default.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/memorials/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/memorials/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/memorials/photos.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/partials/has_cemetery_dash.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/user/photos.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel_admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel_admin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PagesControler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PagesControler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/laravel-code-generator/sources/resources_map.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/laravel-code-generator/sources/resources_map.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/laravel-code-generator/system/migration_tracker.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/laravel-code-generator/system/migration_tracker.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/res.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/cemeteries.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/cemeteries.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/cemeteries_listing.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/cemeteries_listing.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/memorials.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/memorials.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/res/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/user/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/flavors/list.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/flavors/modals/add_flavor.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/flavors/modals/delete_flavor.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/flavors/modals/edit_flavor.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/menu_cat/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/memorials/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/menu_cat/list.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/qrcode/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/qrcode/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/restaurant/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/cemeteries/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/restaurant/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/cemeteries/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/restaurant/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/cemeteries/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/sides/list.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/sides/modals/add_side.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/sides/modals/delete_side.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/res/sides/modals/edit_side.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_10_14_004457_add_fields_to_cemetery.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_10_14_004457_add_fields_to_cemetery.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -349,7 +281,7 @@
       <workItem from="1633842731162" duration="16299000" />
       <workItem from="1633932754718" duration="364000" />
       <workItem from="1634170041601" duration="9651000" />
-      <workItem from="1634201320923" duration="17049000" />
+      <workItem from="1634201320923" duration="18009000" />
     </task>
     <servers />
   </component>

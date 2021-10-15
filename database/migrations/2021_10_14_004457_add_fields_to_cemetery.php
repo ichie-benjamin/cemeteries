@@ -18,6 +18,7 @@ class AddFieldsToCemetery extends Migration
             $table->bigInteger('views_count')->default(0);
             $table->bigInteger('today_views_count')->default(0);
             $table->bigInteger('today_unique_views_count')->default(0);
+            $table->boolean('featured')->default(0);
         });
     }
 
