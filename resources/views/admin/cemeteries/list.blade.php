@@ -125,8 +125,9 @@
                                     </td>
                                     <td> {{ $item->name }} </td>
                                     <td> {{ $item->address }} </td>
-                                    <td> <a href="{{ route('admin.memorials.index') }}?cemetery={{ $item->id }}">{{ $item->memorials_count }}</a></td>
                                     <td> {{ $item->featured ? 'Yes' : 'No' }} </td>
+
+                                    <td> <a href="{{ route('admin.memorials.index') }}?cemetery={{ $item->id }}">{{ $item->memorials_count }}</a></td>
 
                                     <td class="d-flex">
                                         <span class="badge rounded-pill badge-light-success me-1"> active </span>
@@ -177,7 +178,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="{{ route('import.cemeteries') }}"  class="restaurant-info-form">
+                    <form method="POST" action="{{ route('import.cemeteries') }}"  class="restaurant-info-form" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="mb-1">
                             <label class="form-label" for="name">CSV</label>

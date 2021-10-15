@@ -39,12 +39,8 @@
                                     <li class="nav-item">
                                         <a class="nav-link active" id="cemetery-info-tab-justified" data-bs-toggle="tab" href="#cemetery-info" role="tab" aria-controls="cemetery-info" aria-selected="true">Cemetery Information</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="cemetery-template-tab-justified" data-bs-toggle="tab" href="#cemetery-template" role="tab" aria-controls="cemetery-template" aria-selected="false">Cemetery Template</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="payment-settings-tab-justified" data-bs-toggle="tab" href="#payment-settings" role="tab" aria-controls="payment-settings" aria-selected="true">Map Settings</a>
-                                    </li>
+
+
                                 </ul>
 
                                 <!-- Tab panes -->
@@ -82,11 +78,25 @@
                                                     <input required value="{{ old('city') }}" name="city" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('city', '<p class="help-block">:message</p>') !!}
                                                 </div>
-                                                <div class="col-md-12">
+                                                <div class="col-md-8">
                                                     <label class="form-label">Address:</label>
                                                     <input required value="{{ old('address') }}" name="address" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('address', '<p class="help-block">:message</p>') !!}
                                                 </div>
+
+
+                                                <div class="col-md-2">
+                                                    <label class="form-label">Longitude:</label>
+                                                    <input required value="{{ old('longitude') }}" name="longitude" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    {!! $errors->first('longitude', '<p class="help-block">:message</p>') !!}
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <label class="form-label">Latitude:</label>
+                                                    <input required value="{{ old('latitude') }}" name="latitude" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    {!! $errors->first('latitude', '<p class="help-block">:message</p>') !!}
+                                                </div>
+
 
                                                 <div class="col-12">
                                                     <div class="mb-1">

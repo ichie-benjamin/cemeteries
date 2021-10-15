@@ -30,7 +30,7 @@ class CementeriesController extends Controller
 
             Cementery::create($data);
 
-            return redirect()->route('cementeries.cementery.index')
+            return redirect()->route('user.cemeteries.index')
                 ->with('success_message', 'Cementery was successfully added.');
 
     }
