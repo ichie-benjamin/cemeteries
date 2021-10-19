@@ -22,7 +22,7 @@ class CemeteryImport  implements ToCollection, WithHeadingRow
                  Cementery::create([
                     'user_id'    =>  auth()->id(),
                     'name'    =>  $row['name'],
-                    'username' => strtolower(str_replace(' ','_',$row['name'])),
+//                    'username' => strtolower(str_replace(' ','_',$row['name'])),
                     'country'    =>  $row['country'],
                     'state'    =>  $row['state'],
                     'city'    =>  $row['city'],

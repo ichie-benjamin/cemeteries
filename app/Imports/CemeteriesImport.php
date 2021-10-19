@@ -14,7 +14,7 @@ class CemeteriesImport implements ToModel,  WithHeadingRow
         return new Cementery([
             'user_id'    =>  auth()->id(),
             'name'    =>  $this->clean($row['name']),
-            'username' => strtolower(str_replace(' ','-',$this->clean($row['name']))),
+//            'username' => strtolower(str_replace(' ','-',$this->clean($row['name']))),
             'country'    =>  $this->clean($row['country']),
             'state'    =>  $this->clean($row['state']),
             'city'    =>  $this->clean($row['city']),

@@ -30,7 +30,11 @@ class Cementery extends Model implements Viewable
         return [
             'slug' => [
                 'source' => 'name'
-            ]
+            ],
+            'username' => [
+                'source' => 'name'
+            ],
+
         ];
     }
 
