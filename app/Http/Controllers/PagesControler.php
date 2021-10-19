@@ -13,8 +13,8 @@ class PagesControler extends Controller
         return view('pages.memorials', compact('memorials'));
     }
 
-    public function viewCemetery($username){
-        $cemetery = Cementery::with('memorials')->withCount('likers')->whereUsername($username)->firstOrFail();
+    public function viewCemetery($username, $id){
+        $cemetery = Cementery::with('memorials')->withCount('likers')->findOrFail($id);
         views($cemetery)->record();
         return view('pages.cemetery.view.default', compact('cemetery'));
     }
@@ -25,7 +25,7 @@ class PagesControler extends Controller
     }
 
     public function cemeteriesList(){
-        $cemeteries = Cementery::paginate(100);
+        $cemeteries = Cementery::paginate(50);
 
         return view('pages.cemeteries_listing', compact('cemeteries'));
     }

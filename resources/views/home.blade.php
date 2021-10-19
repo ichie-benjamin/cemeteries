@@ -81,7 +81,7 @@
                                             <div class="bg"  data-bg="{{ $item->image }}"></div>
                                             <div class="listing-counter"><span>{{ $item->memorials_count }} </span> Memorials</div>
                                             <div class="listing-item-cat">
-                                                <h3><a href="{{ route('cemetery.show', $item->username) }}">{{ $item->name }}</a></h3>
+                                                <h3><a href="{{ route('cemetery.show', [$item->id, $item->username]) }}">{{ $item->name }}</a></h3>
                                                 <p>{{ $item->full_address }}</p>
                                             </div>
                                         </div>
@@ -94,7 +94,7 @@
                                             <div class="bg"  data-bg="{{ $item->image }}"></div>
                                             <div class="listing-counter"><span>{{ $item->memorials_count }}</span> Memorials</div>
                                             <div class="listing-item-cat">
-                                                <h3><a href="{{ route('cemetery.show', $item->username) }}">{{ $item->name }}</a></h3>
+                                                <h3><a href="{{ route('cemetery.show', [$item->id, $item->username]) }}">{{ $item->name }}</a></h3>
                                                 <p>{{ $item->full_address }}</p>
                                             </div>
                                         </div>

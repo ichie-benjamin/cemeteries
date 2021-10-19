@@ -37,7 +37,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('index');
 //    Route::get('/', [HomeController::class, 'dashboard'])->name('dashboard');
 
 //PAGES
-Route::get('/cemetery', [PagesControler::class, 'cemeteries'])->name('cemeteries');
+//Route::get('/cemetery', [PagesControler::class, 'cemeteries'])->name('cemeteries');
+Route::get('/cemetery', [PagesControler::class, 'cemeteriesList'])->name('cemeteries');
 Route::get('/cemeteries/list', [PagesControler::class, 'cemeteriesList'])->name('cemeteries.list');
 
 Route::get('/memorials/listing', [PagesControler::class, 'memorials'])->name('memorials');
@@ -91,7 +92,7 @@ Route::group(['prefix' => 'cemeteries'], function () {
 @include('admin.php');
 
 
-Route::get('/{username}', [PagesControler::class, 'viewCemetery'])->name('cemetery.show');
+Route::get('/{id}/{username}', [PagesControler::class, 'viewCemetery'])->name('cemetery.show');
 
 Route::group([
     'prefix' => 'memorial',

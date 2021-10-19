@@ -30,6 +30,9 @@
        .clisting .listsearch-input-text {
            margin-top: 0!important;
        }
+        .listing-item {
+            width: 33%!important;
+        }
     </style>
 </head>
 <body>

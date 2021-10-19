@@ -25,7 +25,7 @@
                 <div class="col-list-wrap fh-col-list-wrap  left-list">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-12">
                                 <div class="listsearch-maiwrap box-inside fl-wrap">
                                     <div class="listsearch-header fl-wrap">
                                         <h3><span>Listing Cemeteries</span></h3>
@@ -72,7 +72,7 @@
                                             <div class="geodir-category-content fl-wrap">
                                                 <a class="listing-geodir-category" href="#listing.html">{{ $item->memorials_count }} Memorials</a>
 
-                                                <h3><a href="{{ route('cemetery.show', $item->username) }}l">{{ $item->name }}</a></h3>
+                                                <h3><a href="{{ route('cemetery.show', [$item->id, $item->username]) }}">{{ $item->name }}</a></h3>
                                                 <p>{{ $item->short_desc }}</p>
 
 
@@ -90,19 +90,20 @@
 
                                     <div class="clearfix"></div>
 
-                                    <div class="pagination">
-                                        <a href="#" class="prevposts-link"><i class="fa fa-caret-left"></i></a>
-                                        <a href="#" class="blog-page transition">1</a>
-                                        <a href="#" class="blog-page current-page transition">2</a>
-                                        <a href="#" class="blog-page transition">3</a>
-                                        <a href="#" class="blog-page transition">4</a>
-                                        <a href="#" class="nextposts-link"><i class="fa fa-caret-right"></i></a>
+                                    <div class="mt-3 pt-2">
+                                    {!! $cemeteries->links() !!}
                                     </div>
+
+{{--                                    <div class="pagination">--}}
+{{--                                        <a href="#" class="prevposts-link"><i class="fa fa-caret-left"></i></a>--}}
+{{--                                        <a href="#" class="blog-page transition">1</a>--}}
+{{--                                        <a href="#" class="blog-page current-page transition">2</a>--}}
+{{--                                        <a href="#" class="blog-page transition">3</a>--}}
+{{--                                        <a href="#" class="blog-page transition">4</a>--}}
+{{--                                        <a href="#" class="nextposts-link"><i class="fa fa-caret-right"></i></a>--}}
+{{--                                    </div>--}}
                                 </div>
                                 <!-- list-main-wrap end-->
-                            </div>
-                            <div class="col-md-4">
-
                             </div>
                         </div>
                     </div>
