@@ -18,22 +18,30 @@ class CemeteryImport  implements ToCollection, WithHeadingRow
     {
         foreach ($rows as $row)
         {
-            if(isset($row['name']) && isset($row['country'])){
+            $name = $this->clean($row['name']);
+            if(isset($row['name']) && isset($row['country']) && strlen($name) > 1){
                  Cementery::create([
                     'user_id'    =>  auth()->id(),
-                    'name'    =>  $row['name'],
+                     'name'    =>  $name,
 //                    'username' => strtolower(str_replace(' ','_',$row['name'])),
-                    'country'    =>  $row['country'],
-                    'state'    =>  $row['state'],
-                    'city'    =>  $row['city'],
-                    'address'    =>  $row['address'],
-                    'longitude'    =>  $row['longitude'],
-                    'latitude'    =>  $row['latitude'],
-                    'municipalities'    =>  $row['municipalities'],
-                    'website'    =>  $row['website']
+                     'country'    =>  $this->clean($row['country']),
+                     'state'    =>  $this->clean($row['state']),
+                     'city'    =>  $this->clean($row['city']),
+                     'address'    =>  $this->clean($row['address']),
+                     'longitude'    =>  $this->clean($row['longitude']),
+                     'latitude'    =>  $this->clean($row['latitude']),
+                     'municipalities'    =>  $this->clean($row['municipalities']),
+                     'website'    =>  $this->clean($row['website'])
                 ]);
             }
 
         }
+    }
+
+
+    public function clean($str){
+        $string = str_replace(' ', '-', $str);
+        $text = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+        return str_replace('-', ' ', $text);
     }
 }

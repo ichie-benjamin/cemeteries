@@ -15,7 +15,7 @@ class CommonController extends Controller
         $request->validate([
             'import_file' => 'required|mimes:csv,txt'
         ]);
-        Excel::import(new CemeteriesImport, request()->file('import_file'));
+        Excel::import(new CemeteryImport, request()->file('import_file'));
         return back()->with('success_message', 'Cemeteries was successfully imported.');
     }
 }

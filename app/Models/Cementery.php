@@ -49,7 +49,7 @@ class Cementery extends Model implements Viewable
                   'country',
                   'address',
                   'longitude',
-                  'latitude',
+                  'latitude','slug',
                   'status',
                   'approved',
                   'featured',
