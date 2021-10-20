@@ -32,8 +32,8 @@ class CemeteryImport  implements ToCollection, WithHeadingRow, WithStartRow
                      'state'    =>  $this->clean($row['state']),
                      'city'    =>  $this->clean($row['city']),
                      'address'    =>  $this->clean($row['address']),
-                     'longitude'    =>  $this->clean($row['longitude']),
-                     'latitude'    =>  $this->clean($row['latitude']),
+                     'longitude'    =>  $row['longitude'],
+                     'latitude'    =>  $row['latitude'],
                      'municipalities'    =>  $this->clean($row['municipalities']),
                      'website'    =>  str_limit($this->clean($row['website']), 100)
                 ]);
