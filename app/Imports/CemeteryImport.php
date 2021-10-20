@@ -3,11 +3,14 @@
 namespace App\Imports;
 
 use App\Models\Cementery;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\ToCollection;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithStartRow;
 
-class CemeteryImport  implements ToCollection, WithHeadingRow
+class CemeteryImport  implements ToCollection, WithHeadingRow, WithChunkReading, ShouldQueue,WithStartRow
 {
 //    public function __construct(int $id)
 //    {
@@ -36,6 +39,21 @@ class CemeteryImport  implements ToCollection, WithHeadingRow
             }
 
         }
+    }
+
+    public function startRow(): int
+    {
+        return 1;
+    }
+
+    public function batchSize(): int
+    {
+        return 500;
+    }
+
+    public function chunkSize(): int
+    {
+        return 500;
     }
 
 
