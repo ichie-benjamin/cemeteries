@@ -21,6 +21,7 @@ class Cementery extends Model implements Viewable
     protected $primaryKey = 'id';
 
 
+
     use Sluggable;
 
     protected $withCount = 'memorials';
@@ -87,7 +88,10 @@ class Cementery extends Model implements Viewable
 
     protected $dates = [];
 
-    protected $casts = [];
+    protected $casts = [
+        'longitude' => 'double',
+        'latitude' => 'double'
+    ];
 
     public function user()
     {
