@@ -10,7 +10,7 @@ use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 
-class CemeteryImport  implements ToCollection, WithHeadingRow, WithChunkReading, ShouldQueue,WithStartRow
+class CemeteryImport  implements ToCollection, WithHeadingRow, WithStartRow
 {
 //    public function __construct(int $id)
 //    {
@@ -22,7 +22,8 @@ class CemeteryImport  implements ToCollection, WithHeadingRow, WithChunkReading,
         foreach ($rows as $row)
         {
             $name = $this->clean($row['name']);
-            if(isset($row['name']) && isset($row['country']) && strlen($name) > 1){
+            $exist = Cementery::select('longitude','latitude')->where('latitude',$row['latitude'])->where('longitude',$row['longitude'])->first();
+            if(isset($row['name']) && isset($row['country']) && strlen($name) > 1 && !$exist){
                  Cementery::create([
                     'user_id'    =>  auth()->id(),
                      'name'    =>  $name,
@@ -47,11 +48,6 @@ class CemeteryImport  implements ToCollection, WithHeadingRow, WithChunkReading,
     }
 
     public function batchSize(): int
-    {
-        return 500;
-    }
-
-    public function chunkSize(): int
     {
         return 500;
     }

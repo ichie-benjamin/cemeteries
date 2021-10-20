@@ -13,7 +13,7 @@ class PagesControler extends Controller
         return view('pages.memorials', compact('memorials'));
     }
 
-    public function viewCemetery($username, $id){
+    public function viewCemetery($id, $username){
         $cemetery = Cementery::with('memorials')->withCount('likers')->findOrFail($id);
         views($cemetery)->record();
         return view('pages.cemetery.view.default', compact('cemetery'));
