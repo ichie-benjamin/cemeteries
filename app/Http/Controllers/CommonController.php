@@ -42,6 +42,8 @@ class CommonController extends Controller
 
         Excel::import(new CemeteriesImport, public_path($file));
 
-        return redirect()->route('admin.cemeteries.index')->with('success_message', 'Cemeteries was successfully imported.');
+        return  'success';
+
+//        return redirect()->route('admin.cemeteries.index')->with('success_message', 'Cemeteries was successfully imported.');
     }
 }
