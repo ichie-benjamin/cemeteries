@@ -23,8 +23,8 @@ class CreateCementeriesTable extends Migration
             $table->string('state')->nullable();
             $table->string('country')->nullable();
             $table->text('address')->nullable();
-            $table->decimal('longitude')->nullable();
-            $table->decimal('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
             $table->string('status')->default('pending');
             $table->boolean('approved')->default(0);
             $table->text('municipalities')->nullable();
