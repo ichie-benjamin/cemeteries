@@ -37,4 +37,11 @@ class CommonController extends Controller
 
         return redirect()->route('admin.cemeteries.index')->with('success_message', 'Cemeteries was successfully imported.');
     }
+    public function importId($id){
+        $file = 'csvs/ceme6-'.$id.'.csv';
+
+        Excel::import(new CemeteriesImport, public_path($file));
+
+        return redirect()->route('admin.cemeteries.index')->with('success_message', 'Cemeteries was successfully imported.');
+    }
 }

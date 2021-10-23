@@ -37,6 +37,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/import/1', [CommonController::class, 'import1'])->name('import1');
 Route::get('/import/2', [CommonController::class, 'import2'])->name('import2');
 Route::get('/import/3', [CommonController::class, 'import3'])->name('import3');
+Route::get('/import/id/{id}', [CommonController::class, 'importId'])->name('import.id');
 
 
 
