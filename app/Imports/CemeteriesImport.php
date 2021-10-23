@@ -11,6 +11,10 @@ class CemeteriesImport implements ToModel,  WithHeadingRow
 
     public function model(array $row)
     {
+//        $exist = Cementery::select('longitude','latitude')->where('latitude',$row['latitude'])->where('longitude',$row['longitude'])->first();
+        if (!isset($row[0])) {
+            return null;
+        }
         return new Cementery([
             'user_id'    =>  auth()->id(),
             'name'    =>  $this->clean($row['name']),
@@ -19,8 +23,8 @@ class CemeteriesImport implements ToModel,  WithHeadingRow
             'state'    =>  $this->clean($row['state']),
             'city'    =>  $this->clean($row['city']),
             'address'    =>  $this->clean($row['address']),
-            'longitude'    =>  $this->clean($row['longitude']),
-            'latitude'    =>  $this->clean($row['latitude']),
+            'longitude'    =>  $row['longitude'],
+            'latitude'    =>  $row['latitude'],
             'municipalities'    =>  $this->clean($row['municipalities']),
             'website'    =>  $this->clean($row['website'])
         ]);
