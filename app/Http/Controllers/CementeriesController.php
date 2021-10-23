@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\Models\Cementery;
 use App\Models\User;
@@ -100,6 +100,19 @@ class CementeriesController extends Controller
             'image' => 'string|nullable',
             'logo' => 'string|nullable',
             'description' => 'string|nullable',
+        ];
+
+
+        $rules = [
+            'name' => 'required',
+            'city' => 'string|min:1|nullable',
+            'state' => 'string|min:1|nullable',
+            'country' => 'string|nullable',
+            'address' => 'string|min:1|nullable',
+            'longitude' => 'string|min:1|nullable',
+            'latitude' => 'string|min:1|nullable',
+            'municipalities' => 'string|min:1|nullable',
+            'website' => 'string|min:1|nullable',
         ];
 
         $data = $request->validate($rules);
