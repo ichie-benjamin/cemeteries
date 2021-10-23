@@ -23,7 +23,7 @@ class CommonController extends Controller
 
         Excel::import(new CemeteriesImport, public_path('csvs/csv1.csv'));
 
-        return back()->with('success_message', 'Cemeteries was successfully imported.');
+        return redirect()->route('admin.cemeteries.index')->with('success_message', 'Cemeteries was successfully imported.');
     }
     public function import2(Request $request){
 
