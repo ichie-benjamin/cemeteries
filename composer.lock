@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "670e960934b7b24247b28097e7ca5c89",
+    "content-hash": "8c8d435ee6848378b0a8353304ffb1a6",
     "packages": [
         {
             "name": "akaunting/laravel-setting",
@@ -3628,6 +3628,72 @@
                 }
             ],
             "time": "2020-07-20T17:29:33+00:00"
+        },
+        {
+            "name": "pmatseykanets/artisan-io",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pmatseykanets/artisan-io.git",
+                "reference": "4754942bd24b061450993bc8c2de051cb2071db4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pmatseykanets/artisan-io/zipball/4754942bd24b061450993bc8c2de051cb2071db4",
+                "reference": "4754942bd24b061450993bc8c2de051cb2071db4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~6.0|~7.0|~8.0",
+                "illuminate/console": "~6.0|~7.0|~8.0",
+                "illuminate/container": "~6.0|~7.0|~8.0",
+                "illuminate/database": "~6.0|~7.0|~8.0",
+                "illuminate/support": "~6.0|~7.0|~8.0",
+                "illuminate/validation": "~6.0|~7.0|~8.0",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.2.3",
+                "phpunit/phpunit": "^8.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "ArtisanIo\\ArtisanIoServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ArtisanIo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Peter Matseykanets",
+                    "email": "pmatseykanets@gmail.com",
+                    "homepage": "https://github.com/pmatseykanets"
+                }
+            ],
+            "description": "Artisan data import command for Laravel",
+            "keywords": [
+                "csv",
+                "data",
+                "delimited",
+                "import",
+                "laravel",
+                "tsv"
+            ],
+            "support": {
+                "issues": "https://github.com/pmatseykanets/artisan-io/issues",
+                "source": "https://github.com/pmatseykanets/artisan-io/tree/v3.0.0"
+            },
+            "time": "2020-11-01T00:22:14+00:00"
         },
         {
             "name": "psr/container",

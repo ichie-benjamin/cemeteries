@@ -24,6 +24,7 @@
         "maatwebsite/excel": "^3.1",
         "nicoaudy/laravelmanthra": "dev-master",
         "overtrue/laravel-like": "^4.0",
+        "pmatseykanets/artisan-io": "^3.0",
         "santigarcor/laratrust": "^6.3",
         "tymon/jwt-auth": "^1.0",
         "unisharp/laravel-filemanager": "^2.2",
