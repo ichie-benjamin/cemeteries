@@ -28,7 +28,7 @@ class CreateCementeriesTable extends Migration
             $table->string('status')->default('pending');
             $table->boolean('approved')->default(0);
             $table->text('municipalities')->nullable();
-            $table->string('website')->nullable();
+            $table->text('website')->nullable();
             $table->text('image')->nullable();
             $table->string('template')->default('default');
             $table->string('logo')->nullable();
