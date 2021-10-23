@@ -33,7 +33,7 @@ class CreateMemorialsTable extends Migration
             $table->string('death_year')->nullable();
             $table->string('birth_location')->nullable();
             $table->string('death_location')->nullable();
-            $table->string('bio')->nullable();
+            $table->text('bio')->nullable();
             $table->string('prefix')->nullable();
             $table->string('suffix')->nullable();
             $table->string('image')->nullable();
