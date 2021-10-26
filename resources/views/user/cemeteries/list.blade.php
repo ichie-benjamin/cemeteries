@@ -41,7 +41,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h2 class="card-title"> {{ $item->name }}  </h2>
-                            <a href="{{ route('cemetery.show',$item->username) }}" class="preview-restaurant" target="_blank"> <i data-feather="eye"></i> Preview </a>
+                            <a href="{{ route('cemetery.show',['id'=>$item->id, 'username' => $item->username]) }}" class="preview-restaurant" target="_blank"> <i data-feather="eye"></i> Preview </a>
                         </div>
                         <div class="card-body">
 

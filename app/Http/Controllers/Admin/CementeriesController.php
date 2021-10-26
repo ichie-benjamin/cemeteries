@@ -10,6 +10,7 @@ class CementeriesController extends Controller
 {
     public function index()
     {
+
         $cemeteries = Cementery::paginate(100);
 
         return view('admin.cemeteries.list', compact('cemeteries'));
