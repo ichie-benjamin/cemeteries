@@ -71,8 +71,7 @@ class CementeriesController extends Controller
             $cementery = Cementery::findOrFail($id);
             $cementery->delete();
 
-            return redirect()->route('cementeries.cementery.index')
-                ->with('success_message', 'Cementery was successfully deleted.');
+            return redirect()->back()->with('success_message', 'Cemetery was successfully deleted.');
         } catch (Exception $exception) {
 
             return back()->withInput()

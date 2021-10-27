@@ -306,6 +306,8 @@
             <!--  section end -->
             <div class="limit-box fl-wrap"></div>
             <!--  section  -->
+
+            @guest()
             <section class="gradient-bg">
                 <div class="cirle-bg">
                     <div class="bg" data-bg="images/bg/circle.png"></div>
@@ -317,12 +319,13 @@
                                 <h3>Join our online community</h3>
                                 <p>Grow your marketing and be happy with your online business</p>
                             </div>
-                            <div class="col-md-4"><a href="#" class="join-wrap-btn modal-open">Sign Up <i class="fa fa-sign-in"></i></a></div>
+                            <div class="col-md-4"><a href="{{ route('register') }}" class="join-wrap-btn">Sign Up <i class="fa fa-sign-in"></i></a></div>
                         </div>
                     </div>
                 </div>
             </section>
             <!--  section  end-->
+                @endguest()
         </div>
         <!--  content end  -->
     </div>

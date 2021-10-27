@@ -8,10 +8,12 @@ use Illuminate\Http\Request;
 
 class CementeriesController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
 
-        $cemeteries = Cementery::paginate(100);
+        $cemeteries = $this->queryCemetery($request);
+
+        $cemeteries = $cemeteries->paginate(100);
 
         return view('admin.cemeteries.list', compact('cemeteries'));
     }
@@ -57,26 +59,26 @@ class CementeriesController extends Controller
         $cemetery = Cementery::findOrFail($id);
         $cemetery->update($data);
 
-        return redirect()->route('cemeteries.index')
+        return redirect()->route('admin.cemeteries.index')
             ->with('success_message', 'Cemetery was successfully updated.');
 
     }
 
 
-    public function destroy($id)
-    {
-        try {
-            $cementery = Cementery::findOrFail($id);
-            $cementery->delete();
-
-            return redirect()->route('cementeries.cementery.index')
-                ->with('success_message', 'Cementery was successfully deleted.');
-        } catch (Exception $exception) {
-
-            return back()->withInput()
-                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
-        }
-    }
+//    public function destroy($id)
+//    {
+//        try {
+//            $cementery = Cementery::findOrFail($id);
+//            $cementery->delete();
+//
+//            return redirect()->route('cementeries.cementery.index')
+//                ->with('success_message', 'Cementery was successfully deleted.');
+//        } catch (Exception $exception) {
+//
+//            return back()->withInput()
+//                ->withErrors(['unexpected_error' => 'Unexpected error occurred while trying to process your request.']);
+//        }
+//    }
 
 
     protected function getData(Request $request)
@@ -97,6 +99,7 @@ class CementeriesController extends Controller
             'website' => 'string|min:1|nullable',
             'image' => 'string|nullable',
             'logo' => 'string|nullable',
+            'featured' => '|nullable',
             'description' => 'string|nullable',
         ];
 

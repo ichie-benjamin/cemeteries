@@ -1,19 +1,12 @@
 <?php
 
 
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Api\ImageUploadController;
 use App\Http\Controllers\CementeriesController;
 use App\Http\Controllers\CommonController;
-use App\Http\Controllers\FlavorsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemorialsController;
-use App\Http\Controllers\MenuCategoriesController;
-use App\Http\Controllers\MenusController;
 use App\Http\Controllers\PagesControler;
-use App\Http\Controllers\RestaurantsController;
-use App\Http\Controllers\SidesController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -88,36 +81,34 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
-Route::group(['prefix' => 'cemeteries'], function () {
-//    Route::get('/', 'CementeriesController@index')->name('cemeteries.cemetery.index');
-//    Route::get('/create',CementeriesController@create)->name('cementeries.cementery.create');
-    Route::get('/show/{cementery}','CementeriesController@show')->name('cementeries.cementery.show')->where('id', '[0-9]+');
-    Route::get('/{cementery}/edit','CementeriesController@edit')->name('cementeries.cementery.edit')->where('id', '[0-9]+');
-    Route::put('cementery/{cementery}', 'CementeriesController@update')->name('cementeries.cementery.update')->where('id', '[0-9]+');
-    Route::delete('/cementery/{cementery}','CementeriesController@destroy')->name('cementeries.cementery.destroy')->where('id', '[0-9]+');
-});
+//Route::group(['prefix' => 'cemeteries'], function () {
+//    Route::get('/show/{cementery}','CementeriesController@show')->name('cementeries.cementery.show')->where('id', '[0-9]+');
+//    Route::get('/{cementery}/edit','CementeriesController@edit')->name('cementeries.cementery.edit')->where('id', '[0-9]+');
+//    Route::put('cementery/{cementery}', 'CementeriesController@update')->name('cementeries.cementery.update')->where('id', '[0-9]+');
+//    Route::delete('/cementery/{cementery}','CementeriesController@destroy')->name('cementeries.cementery.destroy')->where('id', '[0-9]+');
+//});
 
 
 @include('admin.php');
 
 
 Route::get('/{id}/{username}', [PagesControler::class, 'viewCemetery'])->name('cemetery.show');
-
-Route::group([
-    'prefix' => 'memorial',
-], function () {
-    Route::get('/', 'MemorialsController@index')
-         ->name('memorials.memorial.index');
-    Route::get('/create','MemorialsController@create')
-         ->name('memorials.memorial.create');
-    Route::get('/show/{memorial}','MemorialsController@show')
-         ->name('memorials.memorial.show')->where('id', '[0-9]+');
-    Route::get('/{memorial}/edit','MemorialsController@edit')
-         ->name('memorials.memorial.edit')->where('id', '[0-9]+');
-    Route::post('/', 'MemorialsController@store')
-         ->name('memorials.memorial.store');
-    Route::put('memorial/{memorial}', 'MemorialsController@update')
-         ->name('memorials.memorial.update')->where('id', '[0-9]+');
-    Route::delete('/memorial/{memorial}','MemorialsController@destroy')
-         ->name('memorials.memorial.destroy')->where('id', '[0-9]+');
-});
+//
+//Route::group([
+//    'prefix' => 'memorial',
+//], function () {
+//    Route::get('/', 'MemorialsController@index')
+//         ->name('memorials.memorial.index');
+//    Route::get('/create','MemorialsController@create')
+//         ->name('memorials.memorial.create');
+//    Route::get('/show/{memorial}','MemorialsController@show')
+//         ->name('memorials.memorial.show')->where('id', '[0-9]+');
+//    Route::get('/{memorial}/edit','MemorialsController@edit')
+//         ->name('memorials.memorial.edit')->where('id', '[0-9]+');
+//    Route::post('/', 'MemorialsController@store')
+//         ->name('memorials.memorial.store');
+//    Route::put('memorial/{memorial}', 'MemorialsController@update')
+//         ->name('memorials.memorial.update')->where('id', '[0-9]+');
+//    Route::delete('/memorial/{memorial}','MemorialsController@destroy')
+//         ->name('memorials.memorial.destroy')->where('id', '[0-9]+');
+//});

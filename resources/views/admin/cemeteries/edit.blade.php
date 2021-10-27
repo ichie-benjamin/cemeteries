@@ -53,7 +53,7 @@
                                 <div class="tab-content pt-1">
                                     <div class="tab-pane active" id="cemetery-info" role="tabpanel" aria-labelledby="cemetery-info-tab-justified">
 
-                                        <form method="POST" action="{{ route('cemeteries.update', $cemetery->id) }}"   class="cemetery-info-form">
+                                        <form method="POST" action="{{ route('admin.cemeteries.update', $cemetery->id) }}"   class="cemetery-info-form">
                                             {{ csrf_field() }}
                                             <input name="_method" type="hidden" value="PUT">
                                             <div class="row g-1 mb-md-1">
@@ -106,7 +106,16 @@
                                                     {!! $errors->first('latitude', '<p class="help-block">:message</p>') !!}
                                                 </div>
 
-                                                <div class="col-md-6">
+
+                                                <div class="col-md-2">
+                                                    <label class="form-label">Featured :</label>
+                                                    <select name="featured" class="form-control">
+                                                        <option {{ $cemetery->featured ? 'selected' : '' }} value="1">Yes</option>
+                                                        <option {{ $cemetery->featured ? '' : 'selected' }} value="0">No</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-md-4">
                                                     <label class="form-label">Website:</label>
                                                     <input  value="{{ old('website', $cemetery->website) }}" name="website" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('website', '<p class="help-block">:message</p>') !!}

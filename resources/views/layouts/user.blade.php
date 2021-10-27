@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
+    <meta name="author" content="Cemeteries">
     <title> Cemeteries </title>
     <link rel="apple-touch-icon" href="/assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="/assets/images/ico/favicon.ico">
@@ -98,7 +98,12 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"><i class="me-50" data-feather="user"></i> Profile</a>
                     <a class="dropdown-item" href="#"><i class="me-50" data-feather="settings"></i> Settings</a>
-                    <a class="dropdown-item" href="#"><i class="me-50" data-feather="power"></i> Logout</a>
+                <a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"  class="dropdown-item" >
+                    <i class="me-50" data-feather="power"></i> Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </a>
                 </div>
             </li>
         </ul>

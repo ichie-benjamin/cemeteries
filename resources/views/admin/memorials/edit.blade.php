@@ -8,7 +8,7 @@
                     <div class="col-12">
                         <h2 class="content-header-title float-start mb-0"> Editing {{ $memorial->name }} </h2>
                     </div>
-                    <p class="back-to-previous mt-1"> <a href="{{ route('cemeteries.index') }}"> <i data-feather="chevron-left"></i> Back to Previous</a> </p>
+                    <p class="back-to-previous mt-1"> <a href="{{ route('admin.memorials.index') }}"> <i data-feather="chevron-left"></i> Back to Memorials</a> </p>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@
                                 <div class="tab-content pt-1">
                                     <div class="tab-pane active" id="cemetery-info" role="tabpanel" aria-labelledby="cemetery-info-tab-justified">
 
-                                        <form method="POST" action="{{ route('memorials.update', $memorial->id) }}"  class="cemetery-info-form">
+                                        <form method="POST" action="{{ route('admin.memorials.update', $memorial->id) }}"  class="cemetery-info-form">
                                             {{ csrf_field() }}
                                             <input name="_method" type="hidden" value="PUT">
                                             <div class="row g-1 mb-md-1">

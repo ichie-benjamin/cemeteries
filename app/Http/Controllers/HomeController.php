@@ -23,7 +23,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $cemeteries = Cementery::paginate(6);
+        $cemeteries = Cementery::latest()->paginate(8);
         return view('home', compact('cemeteries'));
     }
     public function photos()

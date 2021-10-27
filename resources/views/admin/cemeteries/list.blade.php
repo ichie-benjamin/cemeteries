@@ -47,58 +47,66 @@
                             <h4 class="card-title"> Search Cemeteries</h4>
                         </div>
                         <div class="card-body">
-                            <form class="" method="POST">
+                            <form class="" action="" method="get">
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label class="form-label">Name:</label>
-                                        <input type="text" class="form-control dt-input dt-full-name" />
+                                        <input name="name" value="{{ request()->get('name') }}" type="text" class="form-control dt-input dt-full-name" />
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <label class="form-label"> Country:</label>
-                                        <input type="text" class="form-control dt-input dt-item-name" />
+                                        <input name="country" value="{{ request()->get('country') }}" type="text" class="form-control dt-input dt-item-name" />
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-2">
                                         <label class="form-label">State:</label>
-                                        <input type="text" class="form-control dt-input dt-price" />
+                                        <input name="state" value="{{ request()->get('state') }}" type="text" class="form-control dt-input dt-price" />
+                                    </div>
+
+
+                                    <div class="col-md-2">
+                                        <label class="form-label">From Date:</label>
+                                        <div class="mb-0">
+                                            <input type="date" class="form-control dt-date flatpickr-range dt-input" placeholder="StartDate to EndDate" name="from_date" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="form-label">To Date:</label>
+                                        <div class="mb-0">
+                                            <input type="date" class="form-control dt-date flatpickr-range dt-input" placeholder="StartDate to EndDate" name="to_date" />
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="row mt-1">
 
-                                    <div class="col-md-4">
-                                        <label class="form-label">Date & Time:</label>
-                                        <div class="mb-0">
-                                            <input type="date" class="form-control dt-date flatpickr-range dt-input" placeholder="StartDate to EndDate" name="dt_date" />
-                                            <input type="hidden" class="form-control dt-date start_date dt-input" name="value_from_start_date" />
-                                            <input type="hidden" class="form-control dt-date end_date dt-input" name="value_from_end_date" />
-                                        </div>
+
+                                    <div class="col-md-4 col-12">
+                                        <label class="form-label"></label>
+                                        <button class="btn btn-success">Search</button>
+                                        <a href="{{ route('admin.cemeteries.index') }}" class="btn btn-warning">Clear Search</a>
+
                                     </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label" for="basicSelect"> Order Status</label>
-                                        <select class="form-select" id="basicSelect">
-                                            <option>Active</option>
-                                            <option> Disabled </option>
-                                        </select>
-                                    </div>
+
                                 </div>
                             </form>
                         </div>
 
                         <!-- Table items filter -->
-                        <div class="row mb-1">
-                            <div class="d-flex justify-content-between align-items-center mx-0 row">
-                                <div class="col-sm-12 col-md-2"><div class="dataTables_length" id="DataTables_Table_0_length">
-                                        <label class="form-label" for="basicSelect">Show cemeteries</label>
-                                        <select class="form-select" id="basicSelect">
-                                            <option value="10">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="row mb-1">--}}
+{{--                            <div class="d-flex justify-content-between align-items-center mx-0 row">--}}
+{{--                                <div class="col-sm-12 col-md-2"><div class="dataTables_length" id="DataTables_Table_0_length">--}}
+{{--                                        <label class="form-label" for="basicSelect">Show cemeteries</label>--}}
+{{--                                        <select class="form-select" id="basicSelect">--}}
+{{--                                            <option value="10">10</option>--}}
+{{--                                            <option value="25">25</option>--}}
+{{--                                            <option value="50">50</option>--}}
+{{--                                            <option value="100">100</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <!-- Table rows and columns start here-->
                         <div class="table-responsive">
@@ -109,6 +117,7 @@
                                     <th>Photo</th>
                                     <th>Name</th>
                                     <th>Address</th>
+                                    <th>Country / State</th>
                                     <th>Featured</th>
                                     <th>Memorials</th>
                                     <th> Status</th>
@@ -118,13 +127,15 @@
                                 @foreach($cemeteries as $item)
                                 <tr>
                                     <td>
-                                        <span class="fw-bold"> {{ $loop->index+1 }} </span>
+{{--                                        <span class="fw-bold"> {{ $loop->index+1 }} </span>--}}
+                                        <span class="fw-bold"> {{ $item->id }} </span>
                                     </td>
                                     <td>
                                         <img height="30px" width="50px" src="{{ $item->image }}" />
                                     </td>
                                     <td> {{ $item->name }} </td>
                                     <td> {{ $item->address }} </td>
+                                    <td> {{ $item->country }} / {{ $item->state }} </td>
                                     <td> {{ $item->featured ? 'Yes' : 'No' }} </td>
 
                                     <td> <a href="{{ route('admin.memorials.index') }}?cemetery={{ $item->id }}">{{ $item->memorials_count }}</a></td>
@@ -144,10 +155,19 @@
                                                     <i data-feather="x-circle" class="me-50"></i>
                                                     <span>Disable</span>
                                                 </a>
+
+                                                <a type="button" class="dropdown-item"
+                                                   data-bs-toggle="modal" data-bs-target="#deleteModal{{$item->id}}">
+                                                    <i data-feather="x-circle" class="me-50"></i>
+                                                    <span>Delete</span>
+                                                </a>
+
+
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
+
                                 @endforeach
 
                                 </tbody>
@@ -166,6 +186,10 @@
             </div>
 
             <!-- Select Cards Row ends here -->
+
+            @foreach($cemeteries as $item)
+            @include('partials.delete_modal', ['name' => 'Cemetery', 'route' => route('cemeteries.destroy', $item->id), 'item' => $item])
+            @endforeach
 
         </div>
     </div>

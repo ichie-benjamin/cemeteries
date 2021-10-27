@@ -39,62 +39,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title"> Search Cemeteries</h4>
-                        </div>
-                        <div class="card-body">
-                            <form class="" method="POST">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label class="form-label">Name:</label>
-                                        <input type="text" class="form-control dt-input dt-full-name" />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label"> Country:</label>
-                                        <input type="text" class="form-control dt-input dt-item-name" />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label">State:</label>
-                                        <input type="text" class="form-control dt-input dt-price" />
-                                    </div>
-                                </div>
-
-                                <div class="row mt-1">
-
-                                    <div class="col-md-4">
-                                        <label class="form-label">Date & Time:</label>
-                                        <div class="mb-0">
-                                            <input type="date" class="form-control dt-date flatpickr-range dt-input" placeholder="StartDate to EndDate" name="dt_date" />
-                                            <input type="hidden" class="form-control dt-date start_date dt-input" name="value_from_start_date" />
-                                            <input type="hidden" class="form-control dt-date end_date dt-input" name="value_from_end_date" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label class="form-label" for="basicSelect"> Order Status</label>
-                                        <select class="form-select" id="basicSelect">
-                                            <option>Active</option>
-                                            <option> Disabled </option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </form>
+                            <h4 class="card-title"> Listing Memorials </h4>
                         </div>
 
                         <!-- Table items filter -->
-                        <div class="row mb-1">
-                            <div class="d-flex justify-content-between align-items-center mx-0 row">
-                                <div class="col-sm-12 col-md-2"><div class="dataTables_length" id="DataTables_Table_0_length">
-                                        <label class="form-label" for="basicSelect">Show cemeteries</label>
-                                        <select class="form-select" id="basicSelect">
-                                            <option value="10">10</option>
-                                            <option value="25">25</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                         <!-- Table rows and columns start here-->
                         <div class="table-responsive">
                             <table class="table">
@@ -103,6 +51,7 @@
                                     <th>ID</th>
                                     <th>Photo</th>
                                     <th>Name</th>
+                                    <th>Cemetery</th>
                                     <th>Age</th>
                                     <th>Photos</th>
                                     <th> Status</th>
@@ -118,6 +67,8 @@
                                             <img height="30px" width="50px" src="{{ $item->image }}" />
                                         </td>
                                         <td> {{ $item->name }} </td>
+                                        <td> {{ optional($item->cemetery)->name }} </td>
+
                                         <td> {{ $item->age }} </td>
                                         <td> <a href="{{ route('admin.memorials.index') }}?cemetery={{ $item->id }}">{{ $item->photos_count }}</a></td>
                                         <td class="d-flex">
@@ -127,14 +78,16 @@
                                                     <i data-feather="more-vertical"></i>
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="{{ route('admin.cemeteries.edit', $item->id) }}">
+                                                    <a class="dropdown-item" href="{{ route('admin.memorials.edit', $item->id) }}">
                                                         <i data-feather="check-circle" class="me-50"></i>
                                                         <span>Edit</span>
                                                     </a>
-                                                    <a class="dropdown-item" href="#">
+                                                    <a type="button" class="dropdown-item"
+                                                       data-bs-toggle="modal" data-bs-target="#deleteModal{{$item->id}}">
                                                         <i data-feather="x-circle" class="me-50"></i>
-                                                        <span>Disable</span>
+                                                        <span>Delete</span>
                                                     </a>
+
                                                 </div>
                                             </div>
                                         </td>
@@ -145,22 +98,10 @@
                             </table>
 
                             <!-- Table pagination -->
-                            <div class="d-flex justify-content-between mx-0 row mt-1">
-                                <div class="col-sm-12 col-md-6">
-                                    <div role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div>
-                                </div>
-                                <div class="col-sm-12 col-md-6">
-                                    <div class="" id="">
-                                        <ul class="pagination">
-                                            <li class="paginate_button page-item previous disabled">
-                                                <a href="#" class="page-link">&nbsp;</a>
-                                            </li>
-                                            <li class="paginate_button page-item next disabled">
-                                                <a href="#" class="page-link">&nbsp;</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+
+                            <div class="d-flex justify-content-between mx-auto row mt-4 mb-4">
+                                {{ $memorials->links() }}
+
                             </div>
 
                         </div>
@@ -169,7 +110,12 @@
             </div>
 
 
-            <!-- Select Cards Row ends here -->
+
+        @foreach($memorials as $item)
+            @include('partials.delete_modal', ['name' => 'Memorial', 'route' => route('memorials.destroy', $item->id), 'item' => $item])
+        @endforeach
+
+        <!-- Select Cards Row ends here -->
 
         </div>
     </div>

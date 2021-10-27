@@ -59,12 +59,14 @@
                             <div class="mb-1">
                                 <a href="{{ route('memorials.index') }}?cemetery={{ $item->id }}" type="button" class="btn btn-primary green-bg waves-effect waves-float waves-light"> Memorials</a>
                                 <a href="{{ route('cemeteries.edit', $item->id) }}" type="button" class="btn btn-primary blue-bg-outline waves-effect waves-float waves-light"> Edit</a>
-                                <a type="button" class="btn btn-primary red-bg-outline waves-effect waves-float waves-light" data-bs-toggle="modal" data-bs-target="#deleteRestaurantModal{{$item->id}}"> Delete</a>
+                                <a type="button" class="btn btn-primary red-bg-outline waves-effect waves-float waves-light" data-bs-toggle="modal" data-bs-target="#deleteModal{{$item->id}}"> Delete</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
+
+                    @include('partials.delete_modal', ['name' => 'Cemetery', 'route' => route('cemeteries.destroy', $item->id), 'item' => $item])
 
                 @endforeach
 

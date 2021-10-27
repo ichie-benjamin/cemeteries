@@ -16,10 +16,10 @@ class MemorialsController extends Controller
             $c_id = $request->get('cemetery');
             $cemetery = Cementery::findOrFail($c_id);
             $title = $cemetery->name. ' Memorials';
-            $memorials = Memorial::whereCemeteryId($c_id)->paginate(25);
+            $memorials = Memorial::whereCemeteryId($c_id)->paginate(100);
         }else{
             $title = "Manage Memorials";
-            $memorials = Memorial::paginate(25);
+            $memorials = Memorial::paginate(200);
         }
 
         return view('admin.memorials.list', compact('memorials','title'));
@@ -49,11 +49,11 @@ class MemorialsController extends Controller
         $months = $this->months();
         $cemeteries = Cementery::all();
         if(count($cemeteries) < 1){
-            return redirect()->route('cemeteries.create')->with('success_message', 'Create a cemetery first');
+            return redirect()->route('admin.cemeteries.create')->with('success_message', 'Create a cemetery first');
         }
         $prefix = ['Mrs','Doctor','Judge','Deacon','Elder', 'Rabbi',' Rev','Rev Fr','Br','Sr'];
         $sufix = ['Jr','Sr','i','ii','iii','iv','vi','vi'];
-        return view('user.memorials.create', compact('cemeteries','prefix','sufix','months'));
+        return view('admin.memorials.create', compact('cemeteries','prefix','sufix','months'));
     }
 
     public function store(Request $request)
@@ -85,7 +85,7 @@ class MemorialsController extends Controller
         $prefix = ['Mrs','Doctor','Judge','Deacon','Elder', 'Rabbi',' Rev','Rev Fr','Br','Sr'];
         $sufix = ['Jr','Sr','i','ii','iii','iv','vi','vi'];
         $memorial = Memorial::findOrFail($id);
-        return view('user.memorials.edit', compact('memorial','sufix','prefix','cemeteries','months'));
+        return view('admin.memorials.edit', compact('memorial','sufix','prefix','cemeteries','months'));
     }
 
     public function update($id, Request $request)
@@ -95,7 +95,7 @@ class MemorialsController extends Controller
         $memorial = Memorial::findOrFail($id);
         $memorial->update($data);
 
-        return redirect()->route('memorials.index')
+        return redirect()->route('admin.memorials.index')
             ->with('success_message', 'Memorial was successfully updated.');
 
     }

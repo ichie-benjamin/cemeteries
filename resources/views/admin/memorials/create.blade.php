@@ -40,7 +40,7 @@
                                 <div class="tab-content pt-1">
                                     <div class="tab-pane active" id="cemetery-info" role="tabpanel" aria-labelledby="cemetery-info-tab-justified">
 
-                                        <form method="POST" action="{{ route('memorials.store') }}"  class="cemetery-info-form">
+                                        <form method="POST" action="{{ route('admin.memorials.store') }}"  class="cemetery-info-form">
                                             {{ csrf_field() }}
                                             <div class="row g-1 mb-md-1">
                                                 <div class="col-md-4">
