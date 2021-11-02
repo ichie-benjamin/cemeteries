@@ -67,6 +67,19 @@ class Cementery extends Model implements Viewable
         }
         return  $value;
     }
+    public function getNameAttribute($value){
+        return $this->clean($value);
+    }
+    public function getAddressAttribute($value){
+        return $this->clean($value);
+    }
+
+    public function clean($str){
+        $string = str_replace(' ', '-', $str);
+        $text = preg_replace('/[^A-Za-z0-9\-]/', '', $string);
+        return str_replace('-', ' ', $text);
+    }
+
     public function getFullAddressAttribute(){
        return $this->address. ', '.$this->city. ', '.$this->state.', '.$this->country;
     }

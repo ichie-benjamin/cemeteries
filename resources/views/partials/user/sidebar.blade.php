@@ -40,8 +40,10 @@
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
             <li class=" nav-item  {{ active('dashboard') }}"><a class="d-flex align-items-center" href="{{ route('dashboard') }}"><i data-feather="grid"></i><span class="menu-title text-truncate" data-i18n="Home">Dashboard</span></a>
             </li>
+            @if(auth()->user()->hasRole('cemetery'))
             <li class=" nav-item {{ active('cemeteries.*') }} "><a class="d-flex align-items-center" href="{{ route('cemeteries.index') }}"><i data-feather="coffee"></i><span class="menu-title text-truncate" data-i18n="Home">Cemeteries</span></a>
             </li>
+            @endif
             <li class=" nav-item {{ active('memorials.*') }} "><a class="d-flex align-items-center" href="{{ route('memorials.index') }}"><i data-feather="menu"></i><span class="menu-title text-truncate" data-i18n="Home">My Memorials</span></a>
             </li>
 

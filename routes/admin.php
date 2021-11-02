@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CementeriesController;
 use App\Http\Controllers\Admin\MemorialsController;
+use App\Http\Controllers\HomeController;
 
 Route::group(['middleware' => ['auth','role:admin|super_admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');

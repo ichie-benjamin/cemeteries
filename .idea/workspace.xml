@@ -5,21 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fa95e79-fa15-42c1-8148-e21acaf6e0c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/delete_cemetery.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/partials/delete_modal.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/pages/Search.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/set_role.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/user/cemeteries/search.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CementeriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CementeriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/MemorialsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MemorialsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CementeriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CementeriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/cemeteries/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cemeteries/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/cemeteries/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/cemeteries/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/memorials/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/memorials/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/memorials/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/memorials/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/cemetery/view/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/cemetery/view/default.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/user/cemeteries/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/user/cemeteries/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cementery.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cementery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/user/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/user/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -198,18 +196,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/partials" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/user/cemeteries" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/user/cemeteries" />
+      <recent name="$PROJECT_DIR$/resources/views/auth" />
       <recent name="$PROJECT_DIR$/resources/views/partials" />
       <recent name="$PROJECT_DIR$/public/csvs" />
       <recent name="$PROJECT_DIR$/resources/views/admin" />
-      <recent name="$PROJECT_DIR$/resources/views/user" />
-      <recent name="$PROJECT_DIR$/resources/views/user/memorials" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/js" />
@@ -315,7 +313,13 @@
       <workItem from="1635157541360" duration="3078000" />
       <workItem from="1635188437257" duration="6420000" />
       <workItem from="1635260884621" duration="3415000" />
-      <workItem from="1635282272662" duration="6738000" />
+      <workItem from="1635282272662" duration="8684000" />
+      <workItem from="1635354763389" duration="529000" />
+      <workItem from="1635587642852" duration="925000" />
+      <workItem from="1635599857718" duration="8242000" />
+      <workItem from="1635711883931" duration="1840000" />
+      <workItem from="1635808555262" duration="588000" />
+      <workItem from="1635881006603" duration="969000" />
     </task>
     <servers />
   </component>

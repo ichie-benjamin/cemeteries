@@ -23,6 +23,24 @@ class CementeriesController extends Controller
         return view('user.cemeteries.create');
     }
 
+    public function search(Request $request)
+    {
+        if($request->get('name')){
+            $cemeteries = Cementery::where('name', 'like', '%'.$request->get('name').'%')->get();
+            if($cemeteries){
+                $data['status'] = 1;
+                $data['data'] = $cemeteries;
+            }else{
+                $data['status'] = 0;
+                $data['msg'] = 'No result found';
+            }
+        }else{
+            $data['status'] = 0;
+            $data['msg'] = 'pls type sth';
+        }
+        return response()->json($data);
+    }
+
     public function store(Request $request)
     {
 

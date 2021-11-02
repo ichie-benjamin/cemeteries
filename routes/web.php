@@ -58,6 +58,17 @@ Route::get('/cemeteries/create', [CementeriesController::class, 'create'])->name
 
 Route::group(['middleware' => ['auth']], function () {
 
+    Route::get('/seed/roles', [HomeController::class, 'seedRole'])->name('seed.role');
+
+
+    Route::get('/user/set/role', [HomeController::class, 'setRole'])->name('user.set_role');
+
+    Route::get('/user/set/role/{role}', [HomeController::class, 'setUserRole'])->name('user.set.role');
+
+    Route::get('/user/add/cemetery', [HomeController::class, 'addCemetery'])->name('user.addcemetery');
+
+    //search cemeteries
+    Route::post('/cemetery/search', [CementeriesController::class, 'search'])->name('cemeteries.search');
 
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     Route::resources([
