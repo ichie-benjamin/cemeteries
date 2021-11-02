@@ -38,7 +38,10 @@
                     <td> {{ item.featured ? 'Yes' : 'No' }} </td>
 
                     <td> <a href="#">{{ item.memorials_count }}</a></td>
-                    <td> <a class="btn btn-success" href="#">Claim</a></td>
+                    <td>
+                        <a v-if="type === 'search'" class="btn btn-success" :href="'/memorials/create?id='+item.id">Select</a>
+                        <a v-else class="btn btn-success" href="#">Claim</a>
+                    </td>
 
 <!--                    <td class="d-flex">-->
 <!--                        <span class="badge rounded-pill badge-light-success me-1"> active </span>-->
@@ -79,7 +82,7 @@
 <script>
 export default {
 name: "Search",
-    props : ['url','placeholder'],
+    props : ['url','placeholder','type'],
     data (){
         return {
             loading : false,
@@ -101,7 +104,7 @@ name: "Search",
     },
     watch : {
         name(){
-            if(this.name.length > 3){
+            if(this.name.length > 2){
                 if(!this.loading){
                     this.search();
                     console.log('searching')

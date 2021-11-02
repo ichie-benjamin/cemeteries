@@ -84,21 +84,24 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <label class="form-label">Address:</label>
-                                                    <input required value="{{ old('address') }}" name="address" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    <input required  id="address" value="{{ old('address') }}" name="address" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('address', '<p class="help-block">:message</p>') !!}
                                                 </div>
 
                                                 <div class="col-md-2">
                                                     <label class="form-label">Longitude:</label>
-                                                    <input required value="{{ old('longitude') }}" name="longitude" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    <input id="long" required value="{{ old('longitude') }}" disabled type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('longitude', '<p class="help-block">:message</p>') !!}
                                                 </div>
 
                                                 <div class="col-md-2">
                                                     <label class="form-label">Latitude:</label>
-                                                    <input required value="{{ old('latitude') }}" name="latitude" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    <input id="lat" required disabled value="{{ old('latitude') }}" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('latitude', '<p class="help-block">:message</p>') !!}
                                                 </div>
+
+                                                <input type="hidden" name="latitude" id="lat1">
+                                                <input type="hidden" name="longitude" id="long1">
 
                                                 <div class="col-md-6">
                                                     <label class="form-label">Website:</label>
@@ -194,4 +197,23 @@
 
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        function initialize() {
+            var input = document.getElementById('address');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var place = autocomplete.getPlace();
+                document.getElementById('address').value = place.name;
+                document.getElementById('lat').value = place.geometry.location.lat();
+                document.getElementById('lat1').value = place.geometry.location.lat();
+                document.getElementById('long').value = place.geometry.location.lng();
+                document.getElementById('long1').value = place.geometry.location.lng();
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 @endsection

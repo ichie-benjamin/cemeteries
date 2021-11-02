@@ -89,26 +89,31 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <label class="form-label">cemetery Address:</label>
-                                                    <input required value="{{ old('address', $cemetery->address) }}" name="address" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    <input id="address" required value="{{ old('address', $cemetery->address) }}" name="address" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('address', '<p class="help-block">:message</p>') !!}
                                                 </div>
 
 
                                                 <div class="col-md-2">
                                                     <label class="form-label">Longitude:</label>
-                                                    <input required value="{{ old('longitude', $cemetery->longitude) }}" name="longitude" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    <input required disabled id="long" value="{{ old('longitude', $cemetery->longitude) }}" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('longitude', '<p class="help-block">:message</p>') !!}
                                                 </div>
 
                                                 <div class="col-md-2">
                                                     <label class="form-label">Latitude:</label>
-                                                    <input required value="{{ old('latitude', $cemetery->latitude) }}" name="latitude" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    <input required disabled  id="lat" value="{{ old('latitude', $cemetery->latitude) }}" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('latitude', '<p class="help-block">:message</p>') !!}
                                                 </div>
 
+
+                                                <input value="{{  $cemetery->latitude }}" type="hidden" name="latitude" id="lat1">
+                                                <input value="{{  $cemetery->longitude }}" type="hidden" name="longitude" id="long1">
+
+
                                                 <div class="col-md-6">
                                                     <label class="form-label">Website:</label>
-                                                    <input  value="{{ old('website', $cemetery->website) }}" name="website" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    <input   value="{{ old('website', $cemetery->website) }}" name="website" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('website', '<p class="help-block">:message</p>') !!}
                                                 </div>
 
@@ -200,4 +205,24 @@
 
         </div>
     </div>
+@endsection
+
+
+@section('js')
+    <script>
+        function initialize() {
+            var input = document.getElementById('address');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                var place = autocomplete.getPlace();
+                document.getElementById('address').value = place.name;
+                document.getElementById('lat').value = place.geometry.location.lat();
+                document.getElementById('lat1').value = place.geometry.location.lat();
+                document.getElementById('long').value = place.geometry.location.lng();
+                document.getElementById('long1').value = place.geometry.location.lng();
+            });
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 @endsection

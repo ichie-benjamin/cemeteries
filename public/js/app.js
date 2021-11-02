@@ -2083,9 +2083,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Search",
-  props: ['url', 'placeholder'],
+  props: ['url', 'placeholder', 'type'],
   data: function data() {
     return {
       loading: false,
@@ -2112,7 +2115,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   watch: {
     name: function name() {
-      if (this.name.length > 3) {
+      if (this.name.length > 2) {
         if (!this.loading) {
           this.search();
           console.log('searching');
@@ -35133,7 +35136,25 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(1, true)
+                    _c("td", [
+                      _vm.type === "search"
+                        ? _c(
+                            "a",
+                            {
+                              staticClass: "btn btn-success",
+                              attrs: { href: "/memorials/create?id=" + item.id }
+                            },
+                            [_vm._v("Select")]
+                          )
+                        : _c(
+                            "a",
+                            {
+                              staticClass: "btn btn-success",
+                              attrs: { href: "#" }
+                            },
+                            [_vm._v("Claim")]
+                          )
+                    ])
                   ])
                 }),
                 0
@@ -35166,16 +35187,6 @@ var staticRenderFns = [
         _c("th", [_vm._v("Memorials")]),
         _vm._v(" "),
         _c("th", [_vm._v(" Status")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("td", [
-      _c("a", { staticClass: "btn btn-success", attrs: { href: "#" } }, [
-        _vm._v("Claim")
       ])
     ])
   }

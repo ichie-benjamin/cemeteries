@@ -68,7 +68,7 @@
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label class="form-label">Maiden Name:</label>
-                                                    <input required value="{{ old('maiden_name') }}" name="maiden_name" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    <input  value="{{ old('maiden_name') }}" name="maiden_name" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('maiden_name', '<p class="help-block">:message</p>') !!}
                                                 </div>
                                                 <div class="col-md-4">
@@ -82,12 +82,12 @@
 
                                                 <div class="col-md-1">
                                                     <label class="form-label">Birth day:</label>
-                                                    <input required value="{{ old('birth_day') }}" name="birth_day" type="number" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    <input  value="{{ old('birth_day') }}" name="birth_day" type="number" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
                                                     {!! $errors->first('birth_day', '<p class="help-block">:message</p>') !!}
                                                 </div>
                                                 <div class="col-md-2">
                                                     <label class="form-label">Birth Month:</label>
-                                                    <select required name="birth_month" class="form-control">
+                                                    <select  name="birth_month" class="form-control">
                                                         @foreach($months as $item)
                                                             <option value="{{ $loop->index+1 }}">{{ $item }}</option>
                                                         @endforeach
@@ -102,7 +102,7 @@
 
                                                 <div class="col-md-2">
                                                     <label class="form-label">Birth Location:</label>
-                                                    <input required value="{{ old('birth_location') }}" name="birth_location" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    <input id="birth_location" class="form-control dt-input" value="{{ old('birth_location') }}" name="birth_location" />
                                                     {!! $errors->first('birth_location', '<p class="help-block">:message</p>') !!}
                                                 </div>
 
@@ -129,7 +129,7 @@
 
                                                 <div class="col-md-2">
                                                     <label class="form-label">Death Location:</label>
-                                                    <input required value="{{ old('death_location') }}" name="death_location" type="text" class="form-control dt-input" data-column="4" placeholder="" data-column-index="3"/>
+                                                    <input required value="{{ old('death_location') }}" name="death_location" id="death_location" type="text" class="form-control dt-input" />
                                                     {!! $errors->first('death_location', '<p class="help-block">:message</p>') !!}
                                                 </div>
 
@@ -143,15 +143,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
-                                                    <label class="form-label">Select Cemetery :</label>
-                                                    <select required name="cemetery_id" class="form-control">
-                                                        @foreach($cemeteries as $item)
-                                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    {!! $errors->first('cemetery_id', '<p class="help-block">:message</p>') !!}
-                                                </div>
+                                                <input type="hidden" name="cemetery_id" value="{{ $id }}">
 
                                                 <div class="col-md-2">
                                                     <label class="form-label">Select Prefix :</label>
@@ -208,4 +200,16 @@
 
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        function initialize() {
+            var input = document.getElementById('birth_location');
+            new google.maps.places.Autocomplete(input);
+            var input2 = document.getElementById('death_location');
+            new google.maps.places.Autocomplete(input2);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
 @endsection

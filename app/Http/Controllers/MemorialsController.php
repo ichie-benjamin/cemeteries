@@ -45,16 +45,21 @@ class MemorialsController extends Controller
         return view('user.memorials.photos', compact('memorial','photos'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
+        if(!$request->get('id')){
+            return  redirect()->route('memorial.search_cemetery')->with('success','Search for a cemetery');
+        }
+        $id = $request['id'];
         $months = $this->months();
-        $cemeteries = Cementery::whereUserId(auth()->id())->get();
-        if(count($cemeteries) < 1){
-            return redirect()->route('cemeteries.create')->with('success_message', 'Create a cemetery first');
+        $cemeteries = Cementery::findOrFail($id);
+//        $cemeteries = Cementery::whereUserId(auth()->id())->get();
+        if(!$cemeteries){
+            return  redirect()->route('memorial.search_cemetery')->with('success','Search for a cemetery');
         }
         $prefix = ['Mrs','Doctor','Judge','Deacon','Elder', 'Rabbi',' Rev','Rev Fr','Br','Sr'];
         $sufix = ['Jr','Sr','i','ii','iii','iv','vi','vi'];
-        return view('user.memorials.create', compact('cemeteries','prefix','sufix','months'));
+        return view('user.memorials.create', compact('cemeteries','prefix','sufix','months','id'));
     }
 
     public function store(Request $request)
@@ -76,6 +81,11 @@ class MemorialsController extends Controller
         $memorial = Memorial::findOrFail($id);
 
         return view('memorials.show', compact('memorial'));
+    }
+
+    public function searchCemetery()
+    {
+        return view('user.memorials.search');
     }
 
 

@@ -186,6 +186,11 @@
         }
     })
 </script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMby_wXUDOQbdZtIhHjv_nXyKqtO1w-AY&libraries=places"></script>
+
+@yield('js')
+
 </body>
 <!-- END: Body-->
 

@@ -6,7 +6,7 @@
             <div class="content-header-left col-md-4 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0"> Claim a Cemetery </h2>
+                        <h2 class="content-header-title float-start mb-0"> Search for Cemetery </h2>
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
                 <div class="col-12">
                     <div class="alert alert-primary" role="alert">
                         <div class="alert-body">
-                            <p> Search within our dataset for your cemetery, claim existing cemetery, start by typing name of your cemetery
+                            <p> Search within our dataset for a cemetery to add your memorials
                             </p>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
             <!--  Restaurant Cards row starts here -->
             <div class="row match-height">
 
-                <Search type="claim" url="{{ route('cemeteries.search') }}" placeholder="Start typing ......."></Search>
+                <Search type="search" url="{{ route('cemeteries.search') }}" placeholder="Start typing ......."></Search>
 
             </div>
             <!-- Select Cards Row ends here -->

@@ -12,9 +12,16 @@
             </div>
             <div class="content-header-right text-md-end col-md-8 col-12 d-md-block">
                 <div class="mb-1 breadcrumb-right">
-                    <a href="{{ route('memorials.create') }}" type="button" class="btn btn-primary green-bg waves-effect waves-float waves-light">
-                        <i data-feather="plus"></i> Add Memorial
-                    </a>
+                    @if (request()->has('cemetery'))
+                        <a href="{{ route('memorials.create') }}?id={{ request()->get('cemetery') }}" type="button" class="btn btn-primary green-bg waves-effect waves-float waves-light">
+                            <i data-feather="plus"></i> Add Memorial
+                        </a>
+                    @else
+                        <a href="{{ route('memorials.create') }}" type="button" class="btn btn-primary green-bg waves-effect waves-float waves-light">
+                            <i data-feather="plus"></i> Add Memorial
+                        </a>
+                    @endif
+
                 </div>
             </div>
 

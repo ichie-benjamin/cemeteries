@@ -67,6 +67,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/user/add/cemetery', [HomeController::class, 'addCemetery'])->name('user.addcemetery');
 
+    Route::get('/memorial/search/cemetery', [MemorialsController::class, 'searchCemetery'])->name('memorial.search_cemetery');
+
     //search cemeteries
     Route::post('/cemetery/search', [CementeriesController::class, 'search'])->name('cemeteries.search');
 
