@@ -42,6 +42,15 @@
 
 
     <style>
+        dt {
+            font-weight: 700;
+        }
+        .text-md-right {
+            text-align: right !important;
+        }
+        .noty .form-group{
+            margin-top: 10px;
+        }
         .card-congratulations {
             background: linear-gradient(
                 118deg, #24324f, #336699);

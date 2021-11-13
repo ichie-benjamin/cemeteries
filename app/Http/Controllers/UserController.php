@@ -39,7 +39,7 @@ class UserController extends Controller
 
     public function account(){
         $user = auth()->user();
-        $links = ['General Info','Password','Email','Photo Volunteer','Follower Settings','Notifications','Site preferences','Data & Privacy'];
+        $links = ['general info','password','email','Photo Volunteer','Follower Settings','notifications','Site preferences','Data & Privacy'];
         $data['photos'] = Image::whereUserId(auth()->id())->count();
         $data['memorials'] = Memorial::select('user_id')->whereUserId(auth()->id())->count();
         $data['followings'] = $user->followings;
