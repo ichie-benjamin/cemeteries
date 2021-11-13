@@ -7,6 +7,7 @@ use App\Http\Controllers\CommonController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MemorialsController;
 use App\Http\Controllers\PagesControler;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -59,6 +60,16 @@ Route::get('/cemeteries/create', [CementeriesController::class, 'create'])->name
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/seed/roles', [HomeController::class, 'seedRole'])->name('seed.role');
+
+    Route::get('/user/profile/edit', [UserController::class, 'editProfile'])->name('user.profile.edit');
+    Route::get('/user/profile/{id}', [UserController::class, 'profile'])->name('user.profile');
+    Route::get('/user/account', [UserController::class, 'account'])->name('user.account');
+    Route::post('/user/profile/update', [UserController::class, 'updateProfile'])->name('user.profile.update');
+
+
+    Route::get('/user/toggle/follow/{id}', [UserController::class, 'toggleFollow'])->name('user.toggle.follow');
+
+    Route::get('/user/find/member', [UserController::class, 'findMember'])->name('user.find.members');
 
 
     Route::get('/user/set/role', [HomeController::class, 'setRole'])->name('user.set_role');

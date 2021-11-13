@@ -968,9 +968,9 @@ section.gray-section .section-separator {
 	height:50px;
 	width:120px;
 	color:#fff;
-	top:0;
+	top:50%;
 	border:none;
-	border-top-right-radius:30px;
+	border-top-right-radius:0px;
 	border-bottom-right-radius:30px;
 	cursor:pointer;
 }

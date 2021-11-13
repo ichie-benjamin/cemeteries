@@ -27,6 +27,8 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/themes/bordered-layout.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/themes/semi-dark-layout.css">
 
+    @yield('styles')
+
     <!-- BEGIN: Page CSS-->
     <link rel="stylesheet" type="text/css" href="/assets/css/core/menu/menu-types/vertical-menu.css">
 {{--    <link rel="stylesheet" type="text/css" href="/assets/css/plugins/forms/form-file-uploader.css">--}}
@@ -44,6 +46,15 @@
             background: linear-gradient(
                 118deg, #24324f, #336699);
             color: #fff;
+        }
+
+        .members-list h6{
+            font-weight: normal;
+        }
+
+        .profile-bg {
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
 
@@ -96,14 +107,16 @@
                     <a class="dropdown-item" href="{{ route('dashboard') }}"><i class="me-50" data-feather="grid"></i> Dashboard</a>
                     <a class="dropdown-item" href="#"><i class="me-50" data-feather="menu"></i> Menu </a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><i class="me-50" data-feather="user"></i> Profile</a>
+                    <a class="dropdown-item" href="{{ route('user.account') }}"><i class="me-50" data-feather="user"></i> Account</a>
+                    <a class="dropdown-item" href="{{ route('user.profile', auth()->id()) }}"><i class="me-50" data-feather="user"></i> Profile</a>
+                    <a class="dropdown-item" href="{{ route('user.profile.edit') }}"><i data-feather="user" class="me-50"></i> Edit Profile</a>
                     <a class="dropdown-item" href="#"><i class="me-50" data-feather="settings"></i> Settings</a>
                 <a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"  class="dropdown-item" >
                     <i class="me-50" data-feather="power"></i> Logout</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
-                </a>
+
                 </div>
             </li>
         </ul>

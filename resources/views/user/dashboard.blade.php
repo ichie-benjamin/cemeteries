@@ -53,11 +53,11 @@
                                 <div class="text-center">
                                     <h1 class="mb-1 text-white">Welcome {{ auth()->user()->username }}</h1>
                                     <p class="card-text m-auto w-75">
-                                        You dont have a cemetery yet, get started by creating your cemetery page
+                                        You have not added any memorial yet,  get started by adding memorials
                                     </p>
                                     <div class="mt-2">
-                                        <a  href="{{ route('cemeteries.create') }}" type="button" class="btn btn-primary green-bg waves-effect waves-float waves-light">
-                                            <i data-feather="plus"></i> Create A Cemetery
+                                        <a  href="{{ route('memorials.create') }}" type="button" class="btn btn-primary green-bg waves-effect waves-float waves-light">
+                                            <i data-feather="plus"></i> Create A Memorial
                                         </a>
                                     </div>
 

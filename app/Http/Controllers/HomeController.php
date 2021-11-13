@@ -77,8 +77,13 @@ class HomeController extends Controller
             return redirect()->route('admin.dashboard');
         }
         if(!auth()->user()->role_set){
-            return redirect()->route('user.set_role');
+            $role = Role::where('name', 'volunteer')->first();
+            $user = auth()->user();
+            $user->attachRole($role);
+            $user->role_set = true;
+            $user->save();
         }
+
         $cemeteries = Cementery::whereUserId(auth()->id())->get();
 
         foreach($cemeteries as $item) {

@@ -33,6 +33,9 @@
         .listing-item {
             width: 33%!important;
         }
+        .no-side {
+            border-right: none;
+        }
     </style>
 </head>
 <body>

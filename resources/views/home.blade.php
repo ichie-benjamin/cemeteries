@@ -33,22 +33,39 @@
                         </div>
                         <div class="main-search-input-wrap">
                             <div class="main-search-input fl-wrap">
+                                <form action="" method="get">
                                 <div class="main-search-input-item">
-                                    <input type="text" placeholder="Name" value=""/>
-                                </div>
-                                <div class="main-search-input-item location" id="autocomplete-container">
-                                    <input type="text" placeholder="Location" id="autocomplete-input" value=""/>
-                                    <a href="#"><i class="fa fa-dot-circle-o"></i></a>
+                                    <input type="text" name="first_name" placeholder="First Name" value=""/>
                                 </div>
                                 <div class="main-search-input-item">
-                                    <select data-placeholder="Year Died" class="chosen-select" >
-                                        <option>1992</option>
-                                        <option>1993</option>
-                                        <option>1994</option>
-                                        <option>1995</option>
+                                    <input type="text" name="middle_name" placeholder="Middle Name" value=""/>
+                                </div>
+                                <div class="main-search-input-item no-side">
+                                    <input type="text" name="last_name" placeholder="Last Name" value=""/>
+                                </div>
+
+                                <div class="main-search-input-item">
+                                    <select name="year_born" data-placeholder="Year Born" class="chosen-select" >
+                                        <option>Year Born</option>
+                                        @for ($i = 1800; $i <= date('Y'); $i++)
+                                            <option value="{{ $i }}">{{ $i }}</option>
+                                        @endfor
                                     </select>
                                 </div>
-                                <button class="main-search-button" onclick="window.location.href=''">Search</button>
+                                <div class="main-search-input-item">
+                                    <select name="year_died" data-placeholder="Year Died" class="chosen-select" >
+                                        <option>Year Died</option>
+                                        @for ($i = 1800; $i <= date('Y'); $i++)
+                                            <option value="{{ $i }}">{{ $i }}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                                <div class="main-search-input-item location" id="autocomplete-container">
+                                    <input type="text" placeholder="Cemetery Location" name="location" id="autocomplete-input" value=""/>
+                                    <a href="#"><i class="fa fa-dot-circle-o"></i></a>
+                                </div>
+                                <button type="submit" class="main-search-button">Search</button>
+                                </form>
                             </div>
                         </div>
                     </div>
