@@ -50,6 +50,10 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Image::class,'user_id');
     }
 
+    public function setting(){
+        return $this->hasOne(UserSetting::class);
+    }
+
     public function memorials(){
         return $this->hasMany(Memorial::class,'user_id');
     }

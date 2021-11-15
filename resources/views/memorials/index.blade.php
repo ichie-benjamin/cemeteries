@@ -29,7 +29,7 @@
             </div>
 
         </div>
-        
+
         @if(count($memorials) == 0)
             <div class="panel-body text-center">
                 <h4>No Memorials Available.</h4>
@@ -103,7 +103,7 @@
                                     </div>
 
                                 </form>
-                                
+
                             </td>
                         </tr>
                     @endforeach
@@ -116,8 +116,8 @@
         <div class="panel-footer">
             {!! $memorials->render() !!}
         </div>
-        
+
         @endif
-    
+
     </div>
 @endsection

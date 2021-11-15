@@ -65,6 +65,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/user/profile/{id}', [UserController::class, 'profile'])->name('user.profile');
     Route::get('/user/account', [UserController::class, 'account'])->name('user.account');
     Route::post('/user/profile/update', [UserController::class, 'updateProfile'])->name('user.profile.update');
+    Route::post('/user/profile/update/password', [UserController::class, 'updatePassword'])->name('user.profile.update.password');
+    Route::post('/user/profile/update/notifications', [UserController::class, 'updateNotifications'])->name('user.profile.update.notifications');
+    Route::post('/user/profile/update/theme', [UserController::class, 'updateTheme'])->name('user.profile.update.theme');
+    Route::post('/user/profile/update/email', [UserController::class, 'updateEmail'])->name('user.profile.update.email');
+    Route::get('/user/request/{type}', [UserController::class, 'makeRequest'])->name('user.request');
+
+    Route::get('/user/{id}/memorials', [UserController::class, 'memorials'])->name('user.memorials');
 
 
     Route::get('/user/toggle/follow/{id}', [UserController::class, 'toggleFollow'])->name('user.toggle.follow');

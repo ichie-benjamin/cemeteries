@@ -30,9 +30,12 @@
        .clisting .listsearch-input-text {
            margin-top: 0!important;
        }
-        .listing-item {
+       .cemeteries .listing-item {
             width: 33%!important;
         }
+       .text-capitalize{
+           text-transform: capitalize;
+       }
         .no-side {
             border-right: none;
         }

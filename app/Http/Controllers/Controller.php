@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cementery;
 use App\Models\Restaurant;
+use App\Models\UserSetting;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -13,6 +14,16 @@ use Intervention\Image\Image;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+
+    public function checkSettings(){
+        $setting = UserSetting::whereUserId(auth()->id())->first();
+        if(!$setting){
+            $setting = new UserSetting();
+            $setting->user_id = auth()->id();
+            $setting->save();
+        }
+    }
 
     public function months(){
         return ['January','Febuary','March','April','May','June','July','August','September','October','November','December'];

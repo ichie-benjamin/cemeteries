@@ -56,7 +56,7 @@
 
             <li class=" nav-item mt-2"><a class="d-flex align-items-center" href="#"><i data-feather="layout"></i><span class="menu-title text-truncate" data-i18n="Page Layouts"> Account Info </span></a>
                 <ul class="menu-content">
-                    <li><a class="d-flex align-items-center" href="#"><i data-feather="credit-card"></i><span class="menu-item text-truncate" data-i18n="Collapsed Menu">Profile</span></a>
+                    <li><a class="d-flex align-items-center" href="{{ route('user.profile', auth()->id()) }}"><i data-feather="credit-card"></i><span class="menu-item text-truncate" data-i18n="Collapsed Menu">Profile</span></a>
                     </li>
                     <li><a class="d-flex align-items-center" href="#"><i data-feather="settings"></i><span class="menu-item text-truncate" data-i18n="Layout Full">Account Settings</span></a>
                     </li>

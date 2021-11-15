@@ -49,7 +49,7 @@
             text-align: right !important;
         }
         .noty .form-group{
-            margin-top: 10px;
+            margin-top: 10px !important;
         }
         .card-congratulations {
             background: linear-gradient(

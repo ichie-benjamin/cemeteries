@@ -176,7 +176,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-10">
-                                                    <p><a href="{{ route('memorials.index') }}">Memorials Added </a> : {{ $data['memorials'] }}</p>
+                                                    <p><a href="{{ $data['memorials'] > 0 ? route('user.memorials', $user->id) : '' }}">Memorials Added </a> : {{ $data['memorials'] }}</p>
                                                 </div>
                                             </div>
 

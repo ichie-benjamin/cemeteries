@@ -6,7 +6,9 @@ use App\Models\Cementery;
 use App\Models\Image;
 use App\Models\Memorial;
 use App\Models\User;
+use App\Models\UserSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -28,6 +30,91 @@ class UserController extends Controller
 
         return view('user.profile.find_user', compact('users'));
     }
+
+    public function memorials($id, Request $request){
+        $memorial = Memorial::whereUserId($id);
+        $user = User::findOrFail($id);
+        if($request->get('name')){
+          $name = $request->get('name');
+            $memorial->where('first_name', 'like', '%'.$name.'%')
+                ->orWhere('middle_name', 'like', '%'.$name.'%')
+                ->orWhere('first_name', 'like', '%'.$name.'%');
+        }
+        if($request->get('location')){
+          $location = $request->get('location');
+            $memorial->where('address', 'like', '%'.$location.'%');
+        }
+
+        $memorials = $memorial->paginate(50);
+
+        return view('user.profile.memorials', compact('memorials','user'));
+    }
+
+    public function makeRequest($type){
+        if($type = 'delete_account'){
+            $name = 'Delete account request';
+            $this->saveRequest(auth()->id(), $name,$type);
+        }
+        return redirect()->back()->with('success_message', $name.' successfully submited');
+    }
+
+    private function saveRequest($user_id, $name, $type){
+        $request = new \App\Models\Request();
+        $request->name = $name;
+        $request->user_id = $user_id;
+        $request->type = $type;
+        $request->save();
+    }
+
+    public function updatePassword(Request $request){
+        if (!(Hash::check($request->get('current_password'), auth()->user()->password))) {
+            // The passwords matches
+            return redirect()->route('user.account',['t' => 'password'])->with('error_message','Your current password does not matches with the password you provided. Please try again.');
+        }
+        if(strcmp($request->get('current_password'), $request->get('new_password')) == 0){
+            //Current password and new password are same
+            return redirect()->route('user.account',['t' => 'password'])->with('error_message','New Password cannot be same as your current password. Please choose a different password');
+        }
+        $validatedData = $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|string|min:6',
+        ]);
+        //Change Password
+        $user = auth()->user();
+        $user->password = bcrypt($request->get('new_password'));
+        $user->save();
+        return redirect()->back()->with('success_message','Password successfully updated');
+    }
+
+    public function updateEmail(Request $request){
+        if (!(Hash::check($request->get('password'), auth()->user()->password))) {
+            // The passwords matches
+            return redirect()->route('user.account',['t' => 'email'])->with('error_message','Your current password does not matches with the password you provided. Please try again.');
+        }
+        $validatedData = $request->validate([
+            'email' => 'required|email|unique:users',
+        ]);
+        //Change Password
+        $user = auth()->user();
+        $user->email = $request->email;
+        $user->save();
+        return redirect()->back()->with('success_message','Email successfully updated');
+    }
+
+    public function updateNotifications(Request $request){
+
+        return  $request->all();
+        return redirect()->back()->with('success_message','Email successfully updated');
+    }
+
+    public function updateTheme(Request $request){
+        $this->checkSettings();
+        $setting = UserSetting::whereUserId(auth()->id())->first();
+        $setting->theme = $request['theme'];
+        $setting->save();
+        return redirect()->route('user.account',['t' => 'site_preferences'])->with('success_message','Theme successfully updated');
+    }
+
     public function profile($id){
         $user = User::findOrFail($id);
         $data['photos'] = Image::whereUserId($user->id)->count();
@@ -39,7 +126,7 @@ class UserController extends Controller
 
     public function account(){
         $user = auth()->user();
-        $links = ['general info','password','email','Photo Volunteer','Follower Settings','notifications','Site preferences','Data & Privacy'];
+        $links = ['general info','password','email','Photo Volunteer','Follower Settings','notifications','site preferences','data and privacy'];
         $data['photos'] = Image::whereUserId(auth()->id())->count();
         $data['memorials'] = Memorial::select('user_id')->whereUserId(auth()->id())->count();
         $data['followings'] = $user->followings;

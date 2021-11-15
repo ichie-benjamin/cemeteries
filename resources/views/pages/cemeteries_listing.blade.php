@@ -58,7 +58,7 @@
 
 
                                 <!-- list-main-wrap-->
-                                <div class="list-main-wrap fl-wrap card-listing">
+                                <div class="list-main-wrap fl-wrap card-listing cemeteries">
 
                                     <!-- listing-item -->
                                     @foreach($cemeteries as $item)
