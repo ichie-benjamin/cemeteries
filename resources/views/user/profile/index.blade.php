@@ -84,14 +84,14 @@
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-bold" href="#">
+                                                <a class="nav-link fw-bold" href="{{ $data['memorials'] > 0 ? route('user.memorials', $user->id) : '' }}">
                                                     <span class="d-none d-md-block">Managed Memorials ({{ $data['memorials'] }})</span>
                                                     <i data-feather="info" class="d-block d-md-none"></i>
                                                 </a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-bold" href="#">
-                                                    <span class="d-none d-md-block">Photos</span>
+                                                <a class="nav-link fw-bold" href="{{ $data['photos'] > 0 ? route('user.photos', $user->id) : '' }}">
+                                                    <span class="d-none d-md-block">Photos ({{ $data['photos'] }})</span>
                                                     <i data-feather="image" class="d-block d-md-none"></i>
                                                 </a>
                                             </li>
@@ -184,7 +184,7 @@
                                         <div class="col-6">
                                             <div class="row">
                                                 <div class="col-10">
-                                                    <p><a href="{{ route('photos') }}">Photos Added </a>: {{ $data['photos'] }}</p>
+                                                    <p><a href="{{ $data['photos'] > 0 ? route('user.photos', $user->id) : '' }}">Photos Added </a>: {{ $data['photos'] }}</p>
                                                 </div>
                                             </div>
                                             <div class="row">

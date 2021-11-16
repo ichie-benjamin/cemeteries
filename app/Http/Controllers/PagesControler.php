@@ -19,11 +19,23 @@ class PagesControler extends Controller
                 ->orWhere('first_name', 'like', '%'.$name.'%');
 
         }
-        if($request->get('location')){
-            $location = $request->get('location');
-            $title = "Memorials result according to ".$location;
-            $memorial->where('address', 'like', '%'.$location.'%');
+        if($request->get('last_name')){
+            $name = $request->get('last_name');
+            $title = "Memorials result according to ".$name;
+            $memorial->where('last_name', 'like', '%'.$name.'%');
+
         }
+        if($request->get('middle_name')){
+            $name = $request->get('middle_name');
+            $title = "Memorials result according to ".$name;
+            $memorial->where('middle_name', 'like', '%'.$name.'%');
+        }
+        if($request->get('first_name')){
+            $name = $request->get('first_name');
+            $title = "Memorials result according to ".$name;
+            $memorial->where('first_name', 'like', '%'.$name.'%');
+        }
+
         if($request->get('birth_year')){
             $birth = $request->get('birth_year');
             $memorial->where('birth_year', $birth);
@@ -39,6 +51,12 @@ class PagesControler extends Controller
             $title = $cemetery->name . ' Memorials';
             $memorial->whereCemeteryId($c_id)->paginate(25);
         }
+        if($request->get('location')) {
+            $location = $request->get('location');
+           $cemeteries = Cementery::where('address', 'like', '%'.$location.'%')->pluck('id');
+            $title = $location . ' Memorials';
+            $memorial->whereIn('id', $cemeteries)->paginate(25);
+        }
 
         $memorials = $memorial->paginate(50);
 
@@ -50,6 +68,7 @@ class PagesControler extends Controller
         views($cemetery)->record();
         return view('pages.cemetery.view.default', compact('cemetery'));
     }
+
     public function viewMemorial($id){
         $memorial = Memorial::with('user')->findOrFail($id);
         return view('pages.memorial_view', compact('memorial'));

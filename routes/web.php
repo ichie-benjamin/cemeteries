@@ -72,6 +72,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/user/request/{type}', [UserController::class, 'makeRequest'])->name('user.request');
 
     Route::get('/user/{id}/memorials', [UserController::class, 'memorials'])->name('user.memorials');
+    Route::get('/user/{id}/photos', [UserController::class, 'photos'])->name('user.photos');
 
 
     Route::get('/user/toggle/follow/{id}', [UserController::class, 'toggleFollow'])->name('user.toggle.follow');

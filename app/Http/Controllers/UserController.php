@@ -58,6 +58,13 @@ class UserController extends Controller
         return view('user.profile.memorials', compact('memorials','user'));
     }
 
+    public function photos($id, Request $request){
+        $photo = Image::whereUserId($id);
+        $user = User::findOrFail($id);
+        $photos = $photo->paginate(20);
+        return view('user.profile.photos', compact('photos','user'));
+    }
+
     public function makeRequest($type){
         if($type = 'delete_account'){
             $name = 'Delete account request';
@@ -127,6 +134,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $data['photos'] = Image::whereUserId($user->id)->count();
         $data['memorials'] = Memorial::select('user_id')->whereUserId($user->id)->count();
+        $data['photos'] = Image::select('user_id')->whereUserId($user->id)->count();
         $data['followings'] = $user->followings;
         $data['v_cemeteries'] = Cementery::select('user_id','virtual')->whereUserId($user->id)->whereVirtual(1)->count();
         return view('user.profile.index', compact('user','data'));

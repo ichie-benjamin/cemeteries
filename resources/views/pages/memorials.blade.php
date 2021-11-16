@@ -38,7 +38,7 @@
                         </div>
                         <div class="listsearch-input-item" id="autocomplete-container">
 
-                            <input type="text" placeholder="Cemetery Location" id="autocomplete-input" class="qodef-archive-places-search" value=""/>
+                            <input name="location" type="text" placeholder="Cemetery Location" id="autocomplete-input" class="qodef-archive-places-search" value="{{ request()->get('location') }}"/>
                             <a  href="#"  class="loc-act qodef-archive-current-location"><i class="fa fa-dot-circle-o"></i></a>
                         </div>
                         <!-- hidden-listing-filter -->

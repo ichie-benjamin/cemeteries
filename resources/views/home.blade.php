@@ -33,7 +33,7 @@
                         </div>
                         <div class="main-search-input-wrap">
                             <div class="main-search-input fl-wrap">
-                                <form action="" method="get">
+                                <form action="{{ route('memorials') }}" method="get">
                                 <div class="main-search-input-item">
                                     <input type="text" name="first_name" placeholder="First Name" value=""/>
                                 </div>

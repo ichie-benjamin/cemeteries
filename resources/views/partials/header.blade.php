@@ -53,7 +53,7 @@
                         <!--second level -->
                         <ul>
                             <li><a href="{{ route('user.profile', auth()->id()) }}">Profile</a></li>
-                            <li><a href="{{ route('dashboard') }}">Account</a></li>
+                            <li><a href="{{ route('user.account') }}">Account</a></li>
                             <li><a href="{{ route('memorials.index') }}">My Memorials</a></li>
                             <li>
                                 <a  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" >
