@@ -44,6 +44,14 @@ class UserController extends Controller
           $location = $request->get('location');
             $memorial->where('address', 'like', '%'.$location.'%');
         }
+        if($request->get('birth_year')){
+          $birth = $request->get('birth_year');
+            $memorial->where('birth_year', $birth);
+        }
+      if($request->get('death_year')){
+          $death = $request->get('death_year');
+            $memorial->where('death_year', $death);
+        }
 
         $memorials = $memorial->paginate(50);
 

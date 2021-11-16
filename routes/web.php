@@ -45,7 +45,7 @@ Route::get('/cemetery', [PagesControler::class, 'cemeteriesList'])->name('cemete
 Route::get('/cemeteries/list', [PagesControler::class, 'cemeteriesList'])->name('cemeteries.list');
 
 Route::get('/memorials/listing', [PagesControler::class, 'memorials'])->name('memorials');
-Route::get('/memorial/{memorial', [PagesControler::class, 'showMemorials'])->name('memorial.show');
+Route::get('/memorial/{memorial}', [PagesControler::class, 'viewMemorial'])->name('memorial.show');
 Route::get('/famous/memorials', [PagesControler::class, 'famousMemorials'])->name('memorials.famous');
 
 Route::get('/about', [PagesControler::class, 'about'])->name('about');

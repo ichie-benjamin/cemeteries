@@ -15,7 +15,7 @@ class Memorial extends Model
 
     protected $withCount = 'photos';
 
-    protected $appends = ['name','b_date','d_date','short_bio','age'];
+    protected $appends = ['name','b_date','d_date','short_bio','age','mem_id'];
 
     public $months = ['None','Jan','Feb','Mar','April','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
 
@@ -52,9 +52,17 @@ class Memorial extends Model
         return $this->belongsTo(Cementery::class);
     }
 
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 
     public function getNameAttribute(){
         return $this->first_name. ' '.$this->middle_name.' '.$this->last_name;
+    }
+
+    public function getMemIdAttribute(){
+        return $this->id + 1000;
     }
 
     public function getBDateAttribute(){

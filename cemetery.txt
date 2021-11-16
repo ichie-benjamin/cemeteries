@@ -1,0 +1,19 @@
+Link to source code
+
+https://github.com/ogbuechi/cemeteries
+
+download or pull
+
+setup instruction
+
+download / pull script
+
+=> On command line
+composer install
+php artisan migrate
+php artisan db:seed
+
+Default admin login
+
+admin@app.com
+password2365

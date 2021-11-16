@@ -4412,7 +4412,7 @@ article .list-single-main-item {
 .btn{
 	padding:12px 30px;
 	border-radius:6px;
-	color: #878C9F;
+	/*color: #878C9F;*/
 	font-weight:600;
 }
 .btn.color-bg:hover{

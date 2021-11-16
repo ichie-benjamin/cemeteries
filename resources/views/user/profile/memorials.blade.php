@@ -79,21 +79,22 @@
                                         <form action="" method="get">
                                             <div class="listsearch-input-item">
                                                 <i class="mbri-key single-i"></i>
-                                                <input type="text" placeholder="Name?" name="name" value=""/>
+                                                <input type="text" placeholder="Name?" name="name" value="{{ request()->get('name') }}"/>
                                             </div>
                                             <div class="listsearch-input-item">
-                                                <input style="width: 45%" type="text" placeholder="Year Born " name="birthday" value=""/>
-                                                <input style="width: 45%; float: right" type="text" placeholder="Year Dead " name="deathday" value=""/>
+                                                <input style="width: 45%" type="text" placeholder="Birth Year" name="birth_year" value="{{ request()->get('birth_year') }}"/>
+                                                <input style="width: 45%; float: right" type="text" placeholder="Death Year" name="death_year" value="{{ request()->get('death_year') }}"/>
                                             </div>
 
                                             <div class="listsearch-input-text" id="autocomplete-container">
                                                 <label><i class="mbri-map-pin"></i> Cemetery Location</label>
-                                                <input name="location" type="text" placeholder="Cemetery Location" id="autocomplete-input" class="qodef-archive-places-search" value=""/>
+                                                <input name="location" type="text" placeholder="Cemetery Location" id="autocomplete-input" class="qodef-archive-places-search" value="{{ request()->get('location') }}"/>
                                                 <a  href="#"  class="loc-act qodef-archive-current-location"><i class="fa fa-dot-circle-o"></i></a>
                                             </div>
 
                                             <div class="listsearch-input-item" style="margin-top: 20px">
                                                 <button class="button fs-map-btn" type="submit">Search</button>
+
                                             </div>
                                         </form>
 

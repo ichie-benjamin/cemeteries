@@ -4,10 +4,10 @@
         <div class="logo-holder">
             <a href="{{ route('home') }}"><img src="/images/logo.png" alt=""></a>
         </div>
-        <div class="header-search vis-header-search">
-            <div class="header-search-input-item">
-                <input type="text" placeholder="Discover your ancestor" value=""/>
-            </div>
+{{--        <div class="header-search vis-header-search">--}}
+{{--            <div class="header-search-input-item">--}}
+{{--                <input type="text" placeholder="Discover your ancestor" value=""/>--}}
+{{--            </div>--}}
 {{--            <div class="header-search-select-item">--}}
 {{--                <select data-placeholder="All Categories" class="chosen-select" >--}}
 {{--                    <option>All Categories</option>--}}
@@ -18,9 +18,9 @@
 {{--                    <option>Events</option>--}}
 {{--                </select>--}}
 {{--            </div>--}}
-            <button class="header-search-button" >Search</button>
-        </div>
-        <div class="show-search-button"><i class="fa fa-search"></i> <span>Search</span></div>
+{{--            <button class="header-search-button" >Search</button>--}}
+{{--        </div>--}}
+{{--        <div class="show-search-button"><i class="fa fa-search"></i> <span>Search</span></div>--}}
 
         @guest()
             <a href="{{ route('login') }}" class="add-list">Upload Photos <span><i class="fa fa-plus"></i></span></a>

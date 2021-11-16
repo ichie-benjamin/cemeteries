@@ -9,6 +9,10 @@
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <!--=============== css  ===============-->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+
     <link type="text/css" rel="stylesheet" href="/css/reset.css">
     <link type="text/css" rel="stylesheet" href="/css/plugins.css">
     <link type="text/css" rel="stylesheet" href="/css/style.css">
@@ -16,7 +20,61 @@
     <!--=============== favicons ===============-->
     <link rel="shortcut icon" href="/images/favicon.ico">
 
+
+
     <style>
+
+        .col-md-12 {
+            width: 100%;
+            margin: 3px 0px;
+        }
+        .profile-edit-container {
+            text-align: start;
+        }
+        .gallery-items {
+            margin-bottom: 20px;
+        }
+        /* Restaurant info images */
+        .upload-restaurant-logo .dropzone .dz-message:before {
+            top: 6.5rem;
+            width: 30px;
+            height: 30px;
+            color: #000;
+        }
+
+        .upload-restaurant-logo .dropzone {
+            min-height: 150px;
+            border: 2px dashed #000;
+            background: #f8f8f8;
+            width: 150px;
+        }
+
+        .upload-restaurant-logo .dropzone .dz-message {
+            font-size: 0.78rem;
+            color: #000;
+            text-align: center;
+        }
+
+        .upload-restaurant-cover .dropzone .dz-message:before {
+            top: 6.5rem;
+            width: 30px;
+            height: 30px;
+            color: #000;
+        }
+
+        .upload-restaurant-cover .dropzone {
+            min-height: 150px;
+            border: 2px dashed #000;
+            background: #f8f8f8;
+            width: 300px;
+        }
+
+        .upload-restaurant-cover .dropzone .dz-message {
+            font-size: 0.78rem;
+            color: #000;
+            text-align: center;
+        }
+
         .memorials .listsearch-input-item {
             width: 25%;
             padding: 2px 3px;
@@ -38,6 +96,18 @@
        }
         .no-side {
             border-right: none;
+        }
+
+
+        .memo_view section.list-single-section {
+            padding-top: 100px !important;
+        }
+
+        @media only screen and (max-width: 768px){
+            .memorials .listsearch-input-item {
+                width: 50%;
+                padding: 2px 3px;
+            }
         }
     </style>
 </head>
@@ -210,5 +280,12 @@
 <script type="text/javascript" src="/js/markerclusterer.js"></script>
 <script type="text/javascript" src="/js/maps.js"></script>
 
+<script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+<script>
+    $('.lfm').filemanager('image');
+</script>
 </body>
 </html>
