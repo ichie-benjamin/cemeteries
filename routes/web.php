@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/autocomplete/cemeteries', [HomeController::class, 'autocompleteCemeteries'])->name('autocomplete.cemeteries');
 
 
 Route::get('/import/1', [CommonController::class, 'import1'])->name('import1');
@@ -58,6 +59,12 @@ Route::get('/cemeteries/create', [CementeriesController::class, 'create'])->name
 
 
 Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/show/{id}/{username}', [PagesControler::class, 'viewCemetery'])->name('cemetery.view');
+
+    Route::get('/memorial/view/{memorial}', [PagesControler::class, 'viewMemorial'])->name('memorial.view');
+
+
 
     Route::get('/seed/roles', [HomeController::class, 'seedRole'])->name('seed.role');
 
@@ -100,6 +107,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/memorial/photos/{id}', [MemorialsController::class, 'photos'])->name('memorials.photos');
     Route::post('/memorial/photos/store', [MemorialsController::class, 'storePhoto'])->name('memorials.photo.store');
+
+    Route::post('/cemetery/photos/store', [CementeriesController::class, 'storePhoto'])->name('cemetery.photo.store');
 
     Route::get('/my/photos', [HomeController::class, 'photos'])->name('photos');
 

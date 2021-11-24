@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Image;
 use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use App\Models\Cementery;
@@ -22,6 +23,18 @@ class CementeriesController extends Controller
     {
         return view('user.cemeteries.create');
     }
+
+
+    public function storePhoto(Request $request){
+        $photo = new Image();
+        $photo->user_id = auth()->id(); $photo->cemetery_id = $request['cemetery_id'];
+        $photo->name = $request['name']; $photo->path = $request['image'];
+        $photo->type = $request['type'];
+        $photo->save();
+        return redirect()->back()
+            ->with('success_message', 'Cemetery Photo was successfully added.');
+    }
+
 
     public function search(Request $request)
     {

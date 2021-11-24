@@ -20,6 +20,32 @@
                             <input name="name" type="text" placeholder="Name " value="{{ request()->get('name') }}"/>
                         </div>
 
+                            <div class="col-6 col-md-4 mb-3 mb-md-0">
+                                <label class="sr-only" for="birthyear">Year Born</label>
+                                <div class="input-group date-select">
+                                    <input type="number" id="birthyear" name="birthyear" class="form-control hide-ac" maxlength="4" placeholder="Year Born" value="" pattern="\d*" autocomplete="on" title="Year Born">
+                                    <div class="birthyearfilter input-group-append select-exact">
+                                        <button class="btn dropdown-toggle dropdown" type="button" data-toggle="dropdown" id="dropdownbyfilter1">
+
+                                            Exact
+
+                                        </button>
+                                        <ul class="dropdown-menu shadow-sm dropdown-menu-right" aria-labelledby="dropdownbyfilter1">
+                                            <li><a href="#" role="button" class="dropdown-item" value="exact">Exact</a></li>
+                                            <li><a href="#" role="button" class="dropdown-item" value="before">Before</a></li>
+                                            <li><a href="#" role="button" class="dropdown-item" value="after">After</a></li>
+                                            <li><a href="#" role="button" class="dropdown-item" value="1">+/- 1 year</a></li>
+                                            <li><a href="#" role="button" class="dropdown-item" value="3">+/- 3 years</a></li>
+                                            <li><a href="#" role="button" class="dropdown-item" value="5">+/- 5 years</a></li>
+                                            <li><a href="#" role="button" class="dropdown-item" value="10">+/- 10 years</a></li>
+                                            <li><a href="#" role="button" class="dropdown-item" value="25">+/- 25 years</a></li>
+                                            <li><a href="#" role="button" class="dropdown-item" value="unknown">Unknown</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <input type="hidden" name="birthyearfilter" id="birthyearfilter" value="">
+                            </div>
+
                         <div class="listsearch-input-item">
                             <select name="birth_year" data-placeholder="Year Born" class="chosen-select" >
                                 <option value="">Select Year of birth</option>
@@ -129,61 +155,42 @@
                                 </div>
                                 <!-- list-main-wrap end-->
                             </div>
-                            @section('hide')
+{{--                            @section('hide')--}}
                                 <div class="col-md-4">
                                     <div class="fl-wrap">
                                         <!-- listsearch-input-wrap  -->
                                         <div class="listsearch-input-wrap fl-wrap">
                                             <div class="listsearch-input-item">
                                                 <i class="mbri-key single-i"></i>
-                                                <input type="text" placeholder="Keywords?" value=""/>
+                                                <h3>EXPLORE</h3>
                                             </div>
-                                            <div class="listsearch-input-item">
-                                                <select data-placeholder="Location" class="chosen-select" >
-                                                    <option>All Locations</option>
-                                                    <option>Bronx</option>
-                                                    <option>Brooklyn</option>
-                                                    <option>Manhattan</option>
-                                                    <option>Queens</option>
-                                                    <option>Staten Island</option>
-                                                </select>
-                                            </div>
-                                            <div class="listsearch-input-item">
-                                                <select data-placeholder="All Categories" class="chosen-select" >
-                                                    <option>All Categories</option>
-                                                    <option>Shops</option>
-                                                    <option>Hotels</option>
-                                                    <option>Restaurants</option>
-                                                    <option>Fitness</option>
-                                                    <option>Events</option>
-                                                </select>
-                                            </div>
-                                            <div class="listsearch-input-text" id="autocomplete-container">
-                                                <label><i class="mbri-map-pin"></i> Enter Addres </label>
-                                                <input type="text" placeholder="Destination , Area , Street" id="autocomplete-input" class="qodef-archive-places-search" value=""/>
-                                                <a  href="#"  class="loc-act qodef-archive-current-location"><i class="fa fa-dot-circle-o"></i></a>
-                                            </div>
-                                            <div class="distance-input fl-wrap">
-                                                <div class="distance-title"> Radius around selected destination <span></span> km</div>
-                                                <div class="distance-radius-wrap fl-wrap">
-                                                    <input class="distance-radius rangeslider--horizontal" type="range" min="1" max="100" step="1" value="1" data-title="Radius around selected destination">
+                                            <div class="box-widget">
+                                                <div class="box-widget-content">
+                                                    <ul class="cat-item">
+                                                        <li><a href="#">Born/Died on This Date</a></li>
+                                                        <li><a href="#">Yearly Necrologies</a> </li>
+                                                        <li><a href="#">Posthumous Reunions</a> </li>
+                                                        <li><a href="#">Interesting Monuments</a> </li>
+                                                        <li><a href="#">Interesting Epitaphs</a> </li>
+                                                    </ul>
                                                 </div>
                                             </div>
+
                                             <!-- Checkboxes -->
-                                            <div class=" fl-wrap filter-tags">
-                                                <h4>Filter by Tags</h4>
-                                                {{--                                            <div class="filter-tags-wrap">--}}
-                                                {{--                                                <input id="check-a" type="checkbox" name="check" checked>--}}
-                                                {{--                                                <label for="check-a">Elevator in building</label>--}}
-                                                {{--                                            </div>--}}
+                                            <div class=" fl-wrap filter-tags years">
+                                                <h4>Filter by Year of Birth / Death</h4>
+                                                <div class="list-single-tags tags-stylwrap blog-tags filter-year">
+                                                    @for ($i = 1900; $i <= date('Y') - 5; $i+=5)
+                                                        <a href="{{ route('memorials') }}?y_from={{ $i }}&y_to={{ $i+4 }}">{{ $i }}-{{ $i + 4 }}</a>
+                                                    @endfor
+                                                </div>
                                             </div>
-                                            <!-- hidden-listing-filter end -->
-                                            <button class="button fs-map-btn">Update</button>
+
                                         </div>
                                         <!-- listsearch-input-wrap end -->
                                     </div>
                                 </div>
-                            @endsection
+{{--                            @endsection--}}
 
                         </div>
                     </div>

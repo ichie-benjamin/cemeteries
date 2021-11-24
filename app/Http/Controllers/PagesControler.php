@@ -23,7 +23,6 @@ class PagesControler extends Controller
             $name = $request->get('last_name');
             $title = "Memorials result according to ".$name;
             $memorial->where('last_name', 'like', '%'.$name.'%');
-
         }
         if($request->get('middle_name')){
             $name = $request->get('middle_name');
@@ -49,13 +48,19 @@ class PagesControler extends Controller
             $c_id = $request->get('cemetery');
             $cemetery = Cementery::findOrFail($c_id);
             $title = $cemetery->name . ' Memorials';
-            $memorial->whereCemeteryId($c_id)->paginate(25);
+            $memorial->whereCemeteryId($c_id);
         }
         if($request->get('location')) {
             $location = $request->get('location');
            $cemeteries = Cementery::where('address', 'like', '%'.$location.'%')->pluck('id');
             $title = $location . ' Memorials';
-            $memorial->whereIn('id', $cemeteries)->paginate(25);
+            $memorial->whereIn('id', $cemeteries);
+        }
+
+        if($request->get('y_from') && $request->get('y_to')){
+            $from = $request->get('y_from');
+            $to = $request->get('y_to');
+            $memorial->whereBetween('death_year', [$from, $to])->orWhereBetween('birth_year', [$from, $to]);
         }
 
         $memorials = $memorial->paginate(50);
@@ -79,9 +84,19 @@ class PagesControler extends Controller
         return view('pages.cemeteries',compact('cemeteries'));
     }
 
-    public function cemeteriesList(){
-        $cemeteries = Cementery::paginate(50);
-
+    public function cemeteriesList(Request $request){
+        $cemetery = Cementery::latest();
+        if($request->get('name') && $request->get('address')){
+            $name = $request->get('name');
+            $cemetery->where('name', 'like', '%'.$name.'%')->where('address', 'like', '%'.$request['address'].'%');
+        }elseif($request->get('name')){
+            $name = $request->get('name');
+            $cemetery->where('name', 'like', '%'.$name.'%');
+        }elseif($request->get('address')) {
+            $address = $request->get('address');
+            $cemetery->where('address', 'LIKE', '%' . $address . '%');
+        }
+        $cemeteries = $cemetery->paginate(50);
         return view('pages.cemeteries_listing', compact('cemeteries'));
     }
 

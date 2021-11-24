@@ -9,3 +9,6 @@
 #2f3b59
 #336699
 #666699
+
+
+php artisan import:delimited lga.csv "\App\Models\lga" -f name:1,state_id:2 -m insert

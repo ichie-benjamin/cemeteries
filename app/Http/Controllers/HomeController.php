@@ -44,6 +44,13 @@ class HomeController extends Controller
         $cemeteries = Cementery::latest()->paginate(8);
         return view('home', compact('cemeteries'));
     }
+
+    public function autocompleteCemeteries(Request $request)
+    {
+        $cemeteries = Cementery::where('name', 'like', '%'.$request->get('query').'%')->pluck('name');
+        $data['suggestions'] = $cemeteries;
+        return $data;
+    }
     public function photos()
     {
         $photos = Image::whereUserId(auth()->id())->get();

@@ -59,17 +59,18 @@
                             <li><a href="#sec2">Details</a></li>
                             <li><a href="#sec3">Photos</a></li>
                             <li><a href="#memorial">Memorials ({{ $cemetery->memorials_count }})</a></li>
+                            <li><a href="#map">Map</a></li>
 {{--                            <li><a href="#sec4">Map</a></li>--}}
                         </ul>
                     </nav>
-                    <a href="#" class="save-btn"> <i class="fa fa-heart"></i> Add Favorite </a>
+                    <a href="#" class=" save-btn book-btn"> <i class="fa fa-heart"></i> ADD PHOTOS </a>
                 </div>
             </div>
             <!--  section  -->
             <section class="gray-section no-top-padding">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <div class="list-single-main-wrapper fl-wrap" id="sec2">
 {{--                                <div class="breadcrumbs gradient-bg  fl-wrap">--}}
 {{--                                    <a href="#">Home</a><a href="#">Listings</a><span>Listing Single</span>--}}
@@ -152,6 +153,7 @@
                                     <!-- gallery-items   -->
                                     <div class="gallery-items grid-small-pad  list-single-gallery three-coulms lightgallery">
                                         <!-- 1 -->
+
                                         @foreach ($cemetery->photos() as $item)
                                             <div class="gallery-item">
                                                 <div class="grid-item-holder">
@@ -185,7 +187,7 @@
                                                         </div>
                                                         <div class="geodir-category-content fl-wrap">
 
-                                                            <h3><a href="listing-single.html">{{ $item->name }}</a></h3>
+                                                            <h3><a href="{{ route('memorial.show', $item->id) }}">{{ $item->name }}</a></h3>
                                                             <p>{{ $item->age }}</p>
 
                                                         </div>
@@ -205,13 +207,8 @@
                                 </div>
                                 <!-- list-single-main-item end -->
 
-                            </div>
-                        </div>
-                        <!--box-widget-wrap -->
-                        <div class="col-md-4">
-                            <div class="box-widget-wrap">
-
                                 <!--box-widget-item -->
+                                <div class="list-single-main-item fl-wrap" id="map">
                                 <div class="box-widget-item fl-wrap">
                                     <div class="box-widget-item-header">
                                         <h3>Location / Address : </h3>
@@ -224,82 +221,115 @@
                                             <div class="list-author-widget-contacts list-item-widget-contacts">
                                                 <ul>
                                                     <li><span><i class="fa fa-map-marker"></i> Address :</span> <a href="#">{{ $cemetery->full_address }}</a></li>
-{{--                                                    <li><span><i class="fa fa-phone"></i> Phone :</span> <a href="#">+7(123)987654</a></li>--}}
-{{--                                                    <li><span><i class="fa fa-envelope-o"></i> Mail :</span> <a href="#">AlisaNoory@domain.com</a></li>--}}
+                                                    {{--                                                    <li><span><i class="fa fa-phone"></i> Phone :</span> <a href="#">+7(123)987654</a></li>--}}
+                                                    {{--                                                    <li><span><i class="fa fa-envelope-o"></i> Mail :</span> <a href="#">AlisaNoory@domain.com</a></li>--}}
                                                     <li><span><i class="fa fa-globe"></i> Website :</span> <a href="#">{{ $cemetery->website }}</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                </div>
                                 <!--box-widget-item end -->
-                                <!--box-widget-item -->
-                                @section('hide')
-                                <div class="box-widget-item fl-wrap">
-                                    <div class="box-widget-item-header">
-                                        <h3>Hosted by : </h3>
-                                    </div>
-                                    <div class="box-widget list-author-widget">
-                                        <div class="list-author-widget-header shapes-bg-small  color-bg fl-wrap">
-                                            <span class="list-author-widget-link"><a href="author-single.html">Alisa Noory</a></span>
-                                            <img src="images/avatar/4.jpg" alt="">
+
+                            </div>
+                        </div>
+                        <!--box-widget-wrap -->
+                        @section('hide')
+                            <div class="col-md-4">
+                                <div class="box-widget-wrap">
+
+                                    <!--box-widget-item -->
+                                    <div class="box-widget-item fl-wrap">
+                                        <div class="box-widget-item-header">
+                                            <h3>Location / Address : </h3>
                                         </div>
-                                        <div class="box-widget-content">
-                                            <div class="list-author-widget-text">
-                                                <div class="list-author-widget-contacts">
+                                        <div class="box-widget">
+                                            <div class="map-container">
+                                                <div id="singleMap" data-latitude="{{ $cemetery->latitude }}" data-longitude="{{ $cemetery->longitude }}" data-mapTitle="{{ $cemetery->name }} Location"></div>
+                                            </div>
+                                            <div class="box-widget-content">
+                                                <div class="list-author-widget-contacts list-item-widget-contacts">
                                                     <ul>
-                                                        <li><span><i class="fa fa-phone"></i> Phone :</span> <a href="#">+7(123)987654</a></li>
-                                                        <li><span><i class="fa fa-envelope-o"></i> Mail :</span> <a href="#">AlisaNoory@domain.com</a></li>
-                                                        <li><span><i class="fa fa-globe"></i> Website :</span> <a href="#">themeforest.net</a></li>
+                                                        <li><span><i class="fa fa-map-marker"></i> Address :</span> <a href="#">{{ $cemetery->full_address }}</a></li>
+                                                        {{--                                                    <li><span><i class="fa fa-phone"></i> Phone :</span> <a href="#">+7(123)987654</a></li>--}}
+                                                        {{--                                                    <li><span><i class="fa fa-envelope-o"></i> Mail :</span> <a href="#">AlisaNoory@domain.com</a></li>--}}
+                                                        <li><span><i class="fa fa-globe"></i> Website :</span> <a href="#">{{ $cemetery->website }}</a></li>
                                                     </ul>
                                                 </div>
-                                                <a href="author-single.html" class="btn transparent-btn">View Profile <i class="fa fa-eye"></i></a>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endsection
-                                <!--box-widget-item end -->
-                                <!--box-widget-item -->
-                                <div class="box-widget-item fl-wrap">
-                                    <div class="box-widget-item-header">
-                                        <h3>Similar cemeteries : </h3>
-                                    </div>
-                                    <div class="box-widget widget-posts">
-                                        @section('hide')
-                                        <div class="box-widget-content">
-                                            <ul>
-                                                <li class="clearfix">
-                                                    <a href="#"  class="widget-posts-img"><img src="images/all/1.jpg"  alt=""></a>
-                                                    <div class="widget-posts-descr">
-                                                        <a href="#" title="">Cafe "Lollipop"</a>
-                                                        <span class="widget-posts-date"><i class="fa fa-calendar-check-o"></i> 21 Mar 2017 </span>
+                                    <!--box-widget-item end -->
+                                    <!--box-widget-item -->
+                                    @section('hide')
+                                        <div class="box-widget-item fl-wrap">
+                                            <div class="box-widget-item-header">
+                                                <h3>Hosted by : </h3>
+                                            </div>
+                                            <div class="box-widget list-author-widget">
+                                                <div class="list-author-widget-header shapes-bg-small  color-bg fl-wrap">
+                                                    <span class="list-author-widget-link"><a href="author-single.html">Alisa Noory</a></span>
+                                                    <img src="images/avatar/4.jpg" alt="">
+                                                </div>
+                                                <div class="box-widget-content">
+                                                    <div class="list-author-widget-text">
+                                                        <div class="list-author-widget-contacts">
+                                                            <ul>
+                                                                <li><span><i class="fa fa-phone"></i> Phone :</span> <a href="#">+7(123)987654</a></li>
+                                                                <li><span><i class="fa fa-envelope-o"></i> Mail :</span> <a href="#">AlisaNoory@domain.com</a></li>
+                                                                <li><span><i class="fa fa-globe"></i> Website :</span> <a href="#">themeforest.net</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <a href="author-single.html" class="btn transparent-btn">View Profile <i class="fa fa-eye"></i></a>
                                                     </div>
-                                                </li>
-                                                <li class="clearfix">
-                                                    <a href="#"  class="widget-posts-img"><img src="images/all/2.jpg"  alt=""></a>
-                                                    <div class="widget-posts-descr">
-                                                        <a href="#" title=""> Apartment in the Center</a>
-                                                        <span class="widget-posts-date"><i class="fa fa-calendar-check-o"></i> 7 Mar 2017 </span>
-                                                    </div>
-                                                </li>
-                                                <li class="clearfix">
-                                                    <a href="#"  class="widget-posts-img"><img src="images/all/3.jpg"  alt=""></a>
-                                                    <div class="widget-posts-descr">
-                                                        <a href="#" title="">Event in City Mol</a>
-                                                        <span class="widget-posts-date"><i class="fa fa-calendar-check-o"></i> 7 Mar 2017 </span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <a class="widget-posts-link" href="#">See All Listing<span><i class="fa fa-angle-right"></i></span></a>
+                                                </div>
+                                            </div>
                                         </div>
-                                        @endsection
-                                    </div>
-                                </div>
+                                @endsection
                                 <!--box-widget-item end -->
+                                    <!--box-widget-item -->
+                                    <div class="box-widget-item fl-wrap">
+                                        <div class="box-widget-item-header">
+                                            <h3>Similar cemeteries : </h3>
+                                        </div>
+                                        <div class="box-widget widget-posts">
+                                            @section('hide')
+                                                <div class="box-widget-content">
+                                                    <ul>
+                                                        <li class="clearfix">
+                                                            <a href="#"  class="widget-posts-img"><img src="images/all/1.jpg"  alt=""></a>
+                                                            <div class="widget-posts-descr">
+                                                                <a href="#" title="">Cafe "Lollipop"</a>
+                                                                <span class="widget-posts-date"><i class="fa fa-calendar-check-o"></i> 21 Mar 2017 </span>
+                                                            </div>
+                                                        </li>
+                                                        <li class="clearfix">
+                                                            <a href="#"  class="widget-posts-img"><img src="images/all/2.jpg"  alt=""></a>
+                                                            <div class="widget-posts-descr">
+                                                                <a href="#" title=""> Apartment in the Center</a>
+                                                                <span class="widget-posts-date"><i class="fa fa-calendar-check-o"></i> 7 Mar 2017 </span>
+                                                            </div>
+                                                        </li>
+                                                        <li class="clearfix">
+                                                            <a href="#"  class="widget-posts-img"><img src="images/all/3.jpg"  alt=""></a>
+                                                            <div class="widget-posts-descr">
+                                                                <a href="#" title="">Event in City Mol</a>
+                                                                <span class="widget-posts-date"><i class="fa fa-calendar-check-o"></i> 7 Mar 2017 </span>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <a class="widget-posts-link" href="#">See All Listing<span><i class="fa fa-angle-right"></i></span></a>
+                                                </div>
+                                            @endsection
+                                        </div>
+                                    </div>
+                                    <!--box-widget-item end -->
+                                </div>
                             </div>
-                        </div>
-                        <!--box-widget-wrap end -->
+                            <!--box-widget-wrap end -->
+                        @endsection
+
                     </div>
                 </div>
             </section>
@@ -330,4 +360,113 @@
         <!--  content end  -->
     </div>
     <!-- wrapper end -->
+
+
+
+    <div class="booking-modal-wrap">
+        <div class="booking-modal-container">
+            <div class="booking-modal-content fl-wrap">
+                @guest()
+                    <div class="booking-modal-info">
+                        <div class="booking-modal-close color-bg"><i class="fa fa-times" aria-hidden="true"></i></div>
+                        <div class="bg"  data-bg="/images/bg/2.jpg" ></div>
+                        <div class="overlay"></div>
+                        <div class="booking-modal-info_content fl-wrap">
+                            <h4>Sign in or Register</h4>
+                            <ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bookiing-form-wrap">
+                        <div class="list-single-main-item fl-wrap hidden-section tr-sec">
+                            <div class="profile-edit-container">
+                                <div class="row" style="padding: 25px 5px">
+                                    <h4>You need an account to add things to this site.</h4>
+                                <div class="col-md-6">
+                                    <a class="btn btn-success" href="{{ route('cemetery.view', [$cemetery->id, $cemetery->username]) }}">Login / Signup</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--   list-single-main-item end -->
+                    </div>
+                @else
+                    <div class="booking-modal-info">
+                        <div class="booking-modal-close color-bg"><i class="fa fa-times" aria-hidden="true"></i></div>
+                        <div class="bg"  data-bg="/images/bg/2.jpg" ></div>
+                        <div class="overlay"></div>
+                        <div class="booking-modal-info_content fl-wrap">
+                            <h4>Upload photos to this cemetery</h4>
+                            <ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bookiing-form-wrap">
+                        <div class="list-single-main-item fl-wrap hidden-section tr-sec">
+                            <div class="profile-edit-container">
+                                <div>
+                                    <a class="btn btn-success" href="{{ route('cemetery.view', [$cemetery->id, $cemetery->username]) }}">Login / Signup</a>
+                                </div>
+
+                                <div class="custom-for">
+                                    <form method="POST" action="{{ route('cemetery.photo.store') }}">
+                                        <div class="row">
+                                            {{ csrf_field() }}
+                                            <input name="cemetery_id" value="{{ $cemetery->id }}" type="hidden" />
+                                            <div class="col-md-12">
+                                                <label class="form-label" for="basicInput">Add caption</label>
+                                                <input name="name" value="{{ old('name', $cemetery->name ) }}" type="text" class="form-control" id="basicInput" placeholder="photo name" required>
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <div class="row">
+                                                    <label class="form-label col-md-12" for="basicInput">Photo</label>
+                                                    <div class="col-md-12">
+                                                        @include('inc.image-upload',['field' => 'image','id' => 'image'])
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <input type="radio" name="type" value="grave" class="frm-control" /> Grave
+                                                <input type="radio" name="type" value="person" class="fom-control" /> Person
+                                                <input type="radio" name="type" value="family" class="" /> Family
+                                                <input type="radio" name="type" value="other" class="" /> Other
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <h3>General photo guidelines:</h3>
+                                                <ul>
+                                                    <li>
+                                                        Photos larger than 8.0 MB will be optimized and reduced.
+                                                    </li>
+                                                    <li>Each contributor can upload a maximum of 5 photos for a memorial.</li>
+                                                    <li>A memorial can have a maximum of 20 photos from all contributors.</li>
+                                                    <li>The sponsor of a memorial may add an additional 10 photos (for a total of 30 on the memorial).</li>
+                                                    <li>Include gps location with grave photos where possible.</li>
+                                                    <li>No animated GIFs, photos with additional graphics (borders, embellishments.)</li>
+                                                    <li>No post-mortem photos.</li>
+                                                </ul>
+                                            </div>
+
+
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn btn-primary">Save</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--   list-single-main-item end -->
+                    </div>
+                @endguest
+
+
+            </div>
+        </div>
+    </div>
+    <div class="bmw-overlay"></div>
 @endsection

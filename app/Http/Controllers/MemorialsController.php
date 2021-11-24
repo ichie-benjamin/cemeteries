@@ -38,8 +38,14 @@ class MemorialsController extends Controller
 
     }
 
+
+
     public function photos($id)
     {
+        $items = Memorial::whereNull('slug')->get();
+        foreach($items as $item){
+            $item->save();
+        }
         $memorial = Memorial::findOrFail($id);
         $photos = Image::whereMemorialId($id)->get();
         return view('user.memorials.photos', compact('memorial','photos'));

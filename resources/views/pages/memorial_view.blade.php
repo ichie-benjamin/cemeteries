@@ -215,6 +215,31 @@
     <div class="booking-modal-wrap">
         <div class="booking-modal-container">
             <div class="booking-modal-content fl-wrap">
+                @guest()
+                    <div class="booking-modal-info">
+                        <div class="booking-modal-close color-bg"><i class="fa fa-times" aria-hidden="true"></i></div>
+                        <div class="bg"  data-bg="/images/bg/2.jpg" ></div>
+                        <div class="overlay"></div>
+                        <div class="booking-modal-info_content fl-wrap">
+                            <h4>Sign in or Register</h4>
+                            <ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bookiing-form-wrap">
+                        <div class="list-single-main-item fl-wrap hidden-section tr-sec">
+                            <div class="profile-edit-container">
+                                <div class="row" style="padding: 25px 5px">
+                                    <h4>You need an account to add things to this site.</h4>
+                                    <div class="col-md-6">
+                                        <a class="btn btn-success" href="{{ route('memorial.view', $memorial->id) }}">Login / Signup</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--   list-single-main-item end -->
+                    </div>
+                @else
                 <div class="booking-modal-info">
                     <div class="booking-modal-close color-bg"><i class="fa fa-times" aria-hidden="true"></i></div>
                     <div class="bg"  data-bg="/images/bg/2.jpg" ></div>
@@ -282,9 +307,11 @@
                     </div>
                     <!--   list-single-main-item end -->
                 </div>
+                @endguest
             </div>
         </div>
     </div>
     <div class="bmw-overlay"></div>
+
     <!--booking-modal-wrap end -->
 @endsection

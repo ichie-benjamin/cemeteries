@@ -21,6 +21,7 @@
     <link rel="shortcut icon" href="/images/favicon.ico">
 
 
+    @yield('styles')
 
     <style>
 
@@ -103,10 +104,34 @@
             padding-top: 100px !important;
         }
 
+        .years .tags-stylwrap a {
+            float: left;
+            padding: 10px 5px
+        }
+        .filter-year a {
+            margin-top: 5px;
+        }
+
         @media only screen and (max-width: 768px){
             .memorials .listsearch-input-item {
                 width: 50%;
                 padding: 2px 3px;
+            }
+            .cemeteries .listing-item {
+                width: 100%!important;
+            }
+
+            .memorials .geodir-category-content {
+                width: 60%!important;
+            }
+
+            .memorials .listsearch-input-item {
+                width: 100%;
+                padding: 2px 3px;
+            }
+
+            .memorials .geodir-category-img {
+                width: 40%!important;
             }
         }
     </style>
@@ -273,7 +298,7 @@
 <script type="text/javascript" src="/js/plugins.js"></script>
 <script type="text/javascript" src="/js/scripts.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMby_wXUDOQbdZtIhHjv_nXyKqtO1w-AY&amp;libraries=places&amp;callback=initAutocomplete"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEDMgftitrviFjmOCtMcCfP1OuNW2ycTE&amp;libraries=places&amp;callback=initAutocomplete"></script>
 
 
 <script type="text/javascript" src="/js/map_infobox.js"></script>
@@ -282,7 +307,11 @@
 
 <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
 
+<script src="/js/jquery.autocomplete.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+@yield('js')
 
 <script>
     $('.lfm').filemanager('image');

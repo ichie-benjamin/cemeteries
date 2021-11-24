@@ -113,7 +113,22 @@ class Cementery extends Model implements Viewable
 
     public function photos(){
         $mem_ids = $this->memorials()->pluck('id');
-        return Image::whereIn('memorial_id',$mem_ids)->get();
+        return Image::whereIn('memorial_id',$mem_ids)->orWhere('cemetery_id', $this->id)->get();
+    }
+
+    public function photographed(){
+     $total_mem = count($this->memorials()->pluck('id'));
+        $unphotographed = 0;
+        foreach ($this->memorials()->get() as $item){
+            if($item->photos_count < 1){
+                $unphotographed++;
+            }
+        }
+        if($unphotographed > 0){
+            return (($total_mem - $unphotographed) / $total_mem ) * 100;
+        }else{
+            return 100;
+        }
     }
 
     public function memorials()
